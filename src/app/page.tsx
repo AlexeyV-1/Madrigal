@@ -1,10 +1,10 @@
-import { FirstComponent } from "@/components/FirstComponent";
+import LoginPage from "@/components/LoginPage/LoginPage";
 
 export default function Home() {
   return (
     <div>
       <main>
-        <FirstComponent />
+        <LoginPage />
       </main>
     </div>
   );
