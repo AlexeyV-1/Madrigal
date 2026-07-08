@@ -10,8 +10,11 @@ export default function FormLoginComponent() {
     const [password, setPassword] = useState('')
 
     const handleClick = () => {
-        if (email === 'mymail@yandex.ru' && password === '1234567890') {
-            router.push('/page1')
+        if (
+            email === 'mymail@yandex.ru' && 
+            password === '1234567890'
+        ) {
+            router.push('/welcomepage')
         } else {
             window.alert('ВСЁ ЧЕРЕЗ ЖОПУ!!!')
         }
@@ -20,7 +23,7 @@ export default function FormLoginComponent() {
     return (
         <form className="login-page__form">
             <CustomInput
-                btnType="email"
+                inputType="email"
                 placeholder="Email"
                 id='email'
                 required={true}
@@ -28,7 +31,7 @@ export default function FormLoginComponent() {
                 onChange={setEmail}
             />
             <CustomInput
-                btnType="password"
+                inputType="password"
                 placeholder="Пароль"
                 id='password'
                 required={true}
@@ -38,5 +41,4 @@ export default function FormLoginComponent() {
             <button className="login-page__btn" type="button" onClick={handleClick}>Submit</button>
         </form>
     )
-
 }
