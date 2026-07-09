@@ -2,39 +2,8 @@
 
 import { useState } from 'react';
 import styles from '../../../src/styles/components/searchBar.module.scss';
+import { Icon } from '../../../src/components/Сommon/Icon';
 
-const IconSearch = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-);
-
-const IconMic = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13M12 2v9"></path>
-  </svg>
-);
 
 export function SearchBar() {
   const [query, setQuery] = useState('');
@@ -52,6 +21,7 @@ export function SearchBar() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter'}
+        disabled={isVoiceActive}
         className={styles.input}
       />
 
@@ -60,7 +30,7 @@ export function SearchBar() {
         className={styles.btnSearch}
         aria-label="Выполнить поиск"
       >
-        <IconSearch />
+        <Icon role="search" />
       </button>
 
       <button
@@ -69,7 +39,17 @@ export function SearchBar() {
         className={`${styles.btnVoice} ${isVoiceActive ? styles.active : ''}`}
         aria-label={isVoiceActive ? 'Остановить голосовой ввод' : 'Голосовой запрос'}
       >
-        <IconMic />
+
+        <div className={styles.iconWrapper}>
+          <Icon
+            role="microphone"
+            className={`${styles.iconItem} ${!isVoiceActive ? styles.visible : ''}`}
+          />
+          <Icon
+            role="recording"
+            className={`${styles.iconItem} ${isVoiceActive ? styles.visible : ''}`}
+          />
+        </div>
       </button>
     </div>
   );
