@@ -1,16 +1,9 @@
-/** Задания:
- * 1. Изменить нейминг: сделать по БЭМ, поменять нейминг в стилях, убрать модули, подключить в style;
- * 2. Использовать variables, то есть цвета-коды в стилях;
- * 3. Сверстать кнопку выхода на первую страницу
- * 
- */
-
 'use client';
 
 import { useState } from 'react';
-import styles from '../../../src/styles/components/searchBar.module.scss';
-import { Icon } from '../../../src/components/Сommon/Icon';
-import { CustomInput } from '../Сommon/CustomInput';
+import { Icon } from '../Common/Icon';
+import { ExitButton } from '../Common/ExitButton';
+import { CustomInput } from '../Common/CustomInput';
 import { VoiceRecordButton } from './VoiceRecordButton';
 import Link from 'next/link';
 
@@ -23,21 +16,34 @@ export function SearchBar() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="search-bar">
+      <ExitButton className="search-bar__btn-home" />
+
       <CustomInput
-        inputType="search"
+        inputType="text"
         placeholder="Введите ваш запрос"
         inputValue={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter'}
         disabled={isVoiceActive}
-        id='query'
+        id="query"
         required={false}
+        className="search-bar__input"
       />
-      <Link href='/3rdpage' type="button" className={styles.btnSearch} aria-label="Выполнить поиск">
-        <Icon role="search" className='search-icon' />
+
+      <Link
+        href="/3rdpage"
+        className="search-bar__btn-search"
+        aria-label="Выполнить поиск"
+      >
+        <Icon role="search" className="search-bar__icon" />
       </Link>
-      <VoiceRecordButton voiceFn={handleVoice} voiceActive={isVoiceActive} />
+
+      <VoiceRecordButton
+        voiceFn={handleVoice}
+        voiceActive={isVoiceActive}
+        className="search-bar__voice-btn"
+      />
     </div>
   );
 }
