@@ -1,0 +1,25 @@
+.welcomePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+
+  &__content-wrapper {
+    flex: 1;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 1rem 0;
+  }
+
+  &__search-wrapper {
+    margin-top: 16px;
+  }
+}
