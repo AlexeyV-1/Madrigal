@@ -1,6 +1,6 @@
 'use client'
 
-import { CustomInput } from "../Сommon/CustomInput";
+import { CustomInput } from "../Common/CustomInput";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

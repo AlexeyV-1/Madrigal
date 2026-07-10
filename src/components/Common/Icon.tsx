@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 interface IconProps {
-    role: 'microphone' | 'recording' | 'search',
+    role: 'microphone' | 'recording' | 'search' | 'home',
     className: string
 }
 

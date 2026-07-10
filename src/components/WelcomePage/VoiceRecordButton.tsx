@@ -1,10 +1,12 @@
-import styles from '../../../src/styles/components/searchBar.module.scss';
-import { Icon } from '../../../src/components/Сommon/Icon';
+'use client';
+
 import { FC } from 'react';
+import { Icon } from '../Common/Icon';
 
 interface VoiceRecordButtonProps {
-  voiceFn: () => void
-  voiceActive: boolean
+  voiceFn: () => void;
+  voiceActive: boolean;
+  className?: string
 }
 
 export const VoiceRecordButton: FC<VoiceRecordButtonProps> = ({ voiceFn, voiceActive }) => {
@@ -12,12 +14,22 @@ export const VoiceRecordButton: FC<VoiceRecordButtonProps> = ({ voiceFn, voiceAc
     <button
       type="button"
       onClick={voiceFn}
-      className={`${styles.btnVoice} ${voiceActive ? styles.active : ''}`}
+      className={`search-bar__btn-voice ${voiceActive ? 'active' : ''}`}
       aria-label={voiceActive ? 'Остановить голосовой ввод' : 'Голосовой запрос'}
     >
-      {voiceActive ? <Icon role='recording' className={`${styles.iconItem} ${voiceActive ? styles.visible : ''}`}
-      /> : <Icon role='microphone' className={`${styles.iconItem} ${!voiceActive ? styles.visible : ''}`}
-      />}
+      <div className="search-bar__icon-wrapper">
+        {voiceActive ? (
+          <Icon
+            role="recording"
+            className="search-bar__icon-item search-bar--visible"
+          />
+        ) : (
+          <Icon
+            role="microphone"
+            className="search-bar__icon-item search-bar--visible"
+          />
+        )}
+      </div>
     </button>
-  )
-}
+  );
+};

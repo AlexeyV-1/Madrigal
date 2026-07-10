@@ -3,7 +3,7 @@ import { ChangeEventHandler } from "react"
 import { forwardRef } from "react"
 
 export interface CustomInputProps {
-    inputType: 'email' | 'password' | 'search',
+    inputType: 'email' | 'password' | 'text',
     placeholder: string,
     id: string,
     required: boolean,
@@ -14,7 +14,8 @@ export interface CustomInputProps {
     onChange?: ChangeEventHandler<HTMLInputElement>,
     errorMessage?: string,
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
-    disabled?: boolean
+    disabled?: boolean,
+    className?: string;
 }
 
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
