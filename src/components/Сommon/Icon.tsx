@@ -1,13 +1,11 @@
 import { FC } from 'react';
 
 interface IconProps {
-    role: 'microphone' | 'recording' | 'search';
+    role: 'microphone' | 'recording' | 'search',
+    className: string
 }
 
-export const Icon: FC<IconProps & React.SVGProps<SVGSVGElement>> = ({
-    role,
-    className,
-}) => {
+export const Icon: FC<IconProps & React.SVGProps<SVGSVGElement>> = ({ role, className }) => {
     switch (role) {
         case 'microphone':
             return (

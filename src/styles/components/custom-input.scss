@@ -1,5 +1,5 @@
 .custom-input {
-    @apply flex flex-col gap-[12px] relative;
+    @apply flex flex-col gap-[12px] relative w-full;
 
     &__field {
         @apply w-[180px] border-gray-400 border-[2px] outline-none;
@@ -7,9 +7,28 @@
         &:has(~ .custom-input__error) {
             @apply border-red-500
         }
+
+        &--query {
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+
+            &:focus {
+                border-color: transparent;
+                box-shadow: 0 0 0 2px #3b82f6;
+            }
+        }
     }
 
     &__label {
         @apply absolute top-0 left-[200px] mb-0;
+    }
+
+    &__error {
+        @apply text-red-500
     }
 }

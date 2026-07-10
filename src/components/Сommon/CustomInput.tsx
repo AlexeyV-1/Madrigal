@@ -3,21 +3,23 @@ import { ChangeEventHandler } from "react"
 import { forwardRef } from "react"
 
 export interface CustomInputProps {
-    inputType: 'email' | 'password',
+    inputType: 'email' | 'password' | 'search',
     placeholder: string,
     id: string,
     required: boolean,
-    labelValue: string,
+    inputValue?: string
+    labelValue?: string,
     name?: string,
     onBlur?: ChangeEventHandler<HTMLInputElement>,
     onChange?: ChangeEventHandler<HTMLInputElement>,
-    errorMessage?: string
+    errorMessage?: string,
+    onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
+    disabled?: boolean
 }
 
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     ({ inputType, placeholder, id, required, labelValue, name, onChange, onBlur,
-        errorMessage
-    }, ref) => {
+        errorMessage, onKeyDown, disabled, inputValue }, ref) => {
         const [input, setInput] = useState('')
 
         const handleInput: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -33,16 +35,19 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 
         return (
             <div className="custom-input">
-                <input className="custom-input__field"
+                <input
+                    className={id == 'query' ? "custom-input__field custom-input__field--query" : "custom-input__field"}
                     type={inputType}
                     id={id}
                     ref={ref}
                     placeholder={placeholder}
                     onChange={handleInput}
-                    value={input ?? ''}
+                    value={inputValue && input}
                     required={required}
                     name={name}
                     onBlur={onBlur}
+                    onKeyDown={onKeyDown}
+                    disabled={disabled}
                 />
                 <label className="custom-input__label" htmlFor={id}>{labelValue}</label>
                 {errorMessage && <span className="custom-input__error">{errorMessage}</span>}
