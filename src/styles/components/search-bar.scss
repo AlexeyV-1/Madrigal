@@ -8,21 +8,6 @@
         flex-direction: row;
     }
 
-    &__input {
-        padding: 12px 16px;
-        border: 1px solid #7B68EE;
-        border-radius: 8px;
-        width: 100%;
-        font-size: 14px;
-        outline: none;
-        box-sizing: border-box;
-
-        &:focus {
-            border-color: transparent;
-            box-shadow: 0 0 0 2px #7B68EE;
-        }
-    }
-
     &__btn-home {
         display: inline-flex;
         align-items: center;

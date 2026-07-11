@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Icon } from '../Common/Icon';
-import { ExitButton } from '../Common/ExitButton';
+import { ExitButton } from './ExitButton';
 import { CustomInput } from '../Common/CustomInput';
 import { VoiceRecordButton } from './VoiceRecordButton';
 import Link from 'next/link';
@@ -15,9 +15,11 @@ export function SearchBar() {
     setIsVoiceActive((prev) => !prev);
   };
 
+  // МОЖНО EXITBUTTON СМЁРДЖИТЬ С LINK='/3rdpage'
+
   return (
     <div className="search-bar">
-      <ExitButton className="search-bar__btn-home" />
+      <ExitButton />
 
       <CustomInput
         inputType="text"
@@ -28,7 +30,6 @@ export function SearchBar() {
         disabled={isVoiceActive}
         id="query"
         required={false}
-        className="search-bar__input"
       />
 
       <Link

@@ -15,7 +15,6 @@ export interface CustomInputProps {
     errorMessage?: string,
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
     disabled?: boolean,
-    className?: string;
 }
 
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(

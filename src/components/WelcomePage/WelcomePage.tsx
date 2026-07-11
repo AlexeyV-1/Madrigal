@@ -4,13 +4,13 @@ import { SearchBar } from './SearchBar';
 export default function WelcomePage() {
     return (
         <div className='container'>
-            <div className="welcomePage">
-                <div className="welcomePage__content-wrapper">
-                    <p className="welcomePage__text">
+            <div className="welcome-page">
+                <div className="welcome-page__content-wrapper">
+                    <p className="welcome-page__text">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quas?
                     </p>
                 </div>
-                <div className="welcomePage__search-wrapper">
+                <div className="welcome-page__search-wrapper">
                     <SearchBar />
                 </div>
             </div>

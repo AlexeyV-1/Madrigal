@@ -1,0 +1,54 @@
+.feedback__card-agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: $very-dark-gray-2;
+}
+
+.feedback__card-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.feedback__card-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.feedback__card-checkbox-visual {
+    width: 18px;
+    height: 18px;
+    border: 2px solid $very-dark-gray;
+    border-radius: 2px;
+    background-color: transparent;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+
+    &::after {
+        content: '';
+        display: none;
+        width: 12px;
+        height: 12px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3e%3cpath fill='none' stroke='currentColor' stroke-width='2' d='M2 5l4 4 5-7'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+.feedback__card-checkbox:checked+.feedback__card-checkbox-visual {
+    border-color: $very-dark-gray;
+    background-color: $light-gray;
+
+    &::after {
+        display: block;
+    }
+}
+
+.feedback__card-checkbox-visual:hover {
+    border-color: darken($light-gray, 10%);
+}

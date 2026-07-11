@@ -25,7 +25,7 @@ export default function FormLoginComponent() {
             data.password === '1234567890'
         ) {
             setError(null)
-            router.push('/welcomepage')
+            router.push('/landingpage')
         } else {
             setError('Данные неверные! Проверьте их ещё раз!')
         }
@@ -51,7 +51,7 @@ export default function FormLoginComponent() {
                 {...register("password")}
                 errorMessage={errors.password && errors.password.message}
             />
-            <button className="login-page__btn" type="submit">Submit</button>
+            <button className="login-page__btn" type="submit">YEAH!</button>
             {error && <span className="login-page__error">{error}</span>}
         </form>
     )
