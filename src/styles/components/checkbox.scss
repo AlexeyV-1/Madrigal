@@ -1,54 +1,68 @@
-.feedback__card-agreement {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
-    color: $color-color-very-dark-gray-2;
-}
+.feedback {
+    &__card {
+        &-agreement {
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+            color: $color-very-dark-gray;
+        }
 
-.feedback__card-label {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-}
+        &-label {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 14px;
+        }
 
-.feedback__card-checkbox {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+        &-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(50%);
+            overflow: hidden;
+        }
 
-.feedback__card-checkbox-visual {
-    width: 18px;
-    height: 18px;
-    border: 2px solid $color-very-dark-gray;
-    border-radius: 2px;
-    background-color: transparent;
-    flex-shrink: 0;
-    transition: border-color 0.2s ease;
+        &-checkbox-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid $color-very-dark-gray;
+            border-radius: 2px;
+            background-color: transparent;
+            flex-shrink: 0;
+            transition: border-color 0.2s ease;
+            position: relative;
 
-    &::after {
-        content: '';
-        display: none;
-        width: 12px;
-        height: 12px;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3e%3cpath fill='none' stroke='currentColor' stroke-width='2' d='M2 5l4 4 5-7'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
+            &::after {
+                content: '';
+                display: none;
+                width: 12px;
+                height: 12px;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3e%3cpath fill='none' stroke='currentColor' stroke-width='2' d='M2 5l4 4 5-7'/%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-checkbox:checked+.feedback__card-checkbox-box {
+            border-color: $color-very-dark-gray;
+            background-color: $color-light-gray;
+
+            &::after {
+                display: block;
+            }
+        }
+
+        &-checkbox-box:hover {
+            border-color: #555;
+        }
     }
-}
-
-.feedback__card-checkbox:checked+.feedback__card-checkbox-visual {
-    border-color: $color-very-dark-gray;
-    background-color: $color-light-gray;
-
-    &::after {
-        display: block;
-    }
-}
-
-.feedback__card-checkbox-visual:hover {
-    border-color: darken($color-light-gray, 10%);
 }
