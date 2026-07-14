@@ -18,6 +18,7 @@ export default function LandingPageScenaryItem({
 
     const toggle = () => setIsOpen((prev) => !prev);
 
+    //! dddddddddddd
     const handleArrowClick = (e: React.MouseEvent) => {
         e.stopPropagation();
         toggle();
@@ -44,6 +45,7 @@ export default function LandingPageScenaryItem({
 
                 <LandingPageArrowBtn
                     isOpen={isOpen}
+                    //!ffffff
                     onToggle={handleArrowClick}
                 />
             </div>

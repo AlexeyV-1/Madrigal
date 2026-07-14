@@ -15,6 +15,7 @@ interface CustomInputBaseProps {
     onChange?: ChangeEventHandler<HTMLInputElement>,
     errorMessage?: string,
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
+    disabled?: boolean
 }
 
 interface CustomInputPasswordProps extends Omit<CustomInputBaseProps, 'inputType'> {
@@ -28,7 +29,7 @@ export type CustomInputProps = CustomInputBaseProps | CustomInputPasswordProps
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     (props, ref) => {
         const { inputType, placeholder, id, required, labelValue, name, onChange, onBlur,
-            errorMessage, onKeyDown, inputValue } = props
+            errorMessage, onKeyDown, inputValue, disabled } = props
         const [input, setInput] = useState('')
 
         const handleInput: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -60,6 +61,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
                     name={name}
                     onBlur={onBlur}
                     onKeyDown={onKeyDown}
+                    disabled={disabled}
                 />
                 {labelValue && <label className="custom-input__label" htmlFor={id}>{labelValue}</label>}
                 {isPassword && <button
