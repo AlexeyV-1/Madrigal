@@ -97,6 +97,43 @@
             padding: 16px 42px 16px 13px;
         }
     }
+
+    &--checkbox {
+        @apply mb-[15px];
+        .custom-input__wrapper {
+            @apply flex gap-[14px] justify-start items-center relative
+        }
+
+        .custom-input__field {
+            @apply relative w-[11px] opacity-0 cursor-pointer;
+
+            &:checked + .custom-input__indicator::before {
+                @apply opacity-100
+            }
+        }
+
+        .custom-input__indicator {
+            @apply w-[11px] h-[11px] border-[1px] border-black absolute rounded-[2px] top-[5px] cursor-pointer pointer-events-none;
+
+            &::before {
+                @apply w-[11px] h-[11px] bg-black absolute content-[''] top-0 opacity-0 cursor-pointer
+            }
+        }
+
+        .custom-input__label {
+            position: unset;
+            @apply text-[12px]/[15px]
+        }
+
+        .custom-input__text, .custom-input__link {
+            @apply text-[12px]/[15px] text-charcoal
+        }
+
+        .custom-input__error {
+            top: calc(100%);
+            @apply left-[3px]
+        }
+    }
 }
 
 @keyframes appearance {

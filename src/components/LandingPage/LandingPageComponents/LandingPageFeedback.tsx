@@ -1,4 +1,5 @@
 import { ExitButton } from "@/components/WelcomePage/ExitButton"
+import { FeedbackForm } from "./FeedbackForm"
 
 export function LandingPageFeedback() {
     return (
@@ -15,46 +16,7 @@ export function LandingPageFeedback() {
                     <h2 className="feedback__card-title">Обсудить проект</h2>
                     <p className="feedback__card-text">Оставьте контакты, и мы адаптируем frontend-прототип
                         платформы под специфику ваших ведомственных или корпоративных данных.</p>
-                    <div className="feedback__card-form">
-                        <input
-                            type="text"
-                            placeholder='Имя и фамилия'
-                            className="feedback__card-input"
-                            required
-                        />
-                        <input
-                            type="text"
-                            placeholder='Название организации'
-                            className="feedback__card-input"
-                            required
-                        />
-                        <input
-                            type="number"
-                            placeholder='Телефон'
-                            className="feedback__card-input"
-                            required
-                        />
-                        <div className="feedback__card-agreement">
-                            <label className="feedback__card-label">
-                                <input
-                                    type="checkbox"
-                                    className="feedback__card-checkbox"
-                                    required
-                                    aria-labelledby="agreement-text"
-                                />
-                                <span className="feedback__card-checkbox-box"></span>
-                                <span id="agreement-text" className="feedback__card-checkbox-text">
-                                    Нажимая кнопку, вы соглашаетесь с{' '}
-                                    <a href="#" className="feedback__card-link">
-                                        Политикой обработки персональных данных
-                                    </a>
-                                </span>
-                            </label>
-                        </div>
-                        <ExitButton href="/welcomepage" className="feedback__card-btn btn" noBaseStyle={true}>
-                            Отправить заявку
-                        </ExitButton>
-                    </div>
+                    <FeedbackForm />
                 </div>
             </div>
         </section>

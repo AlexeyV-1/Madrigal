@@ -191,6 +191,10 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
 
     &__btn {
         margin-bottom: 40px;
+
+        &--form {
+            margin-bottom: 0;
+        }
     }
 
     &__card {

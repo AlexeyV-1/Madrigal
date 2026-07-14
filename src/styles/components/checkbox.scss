@@ -1,5 +1,14 @@
 .feedback {
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     &__card {
+        &-text {
+            margin-bottom: 10px;
+        }
         &-agreement {
             display: flex;
             align-items: flex-start;
