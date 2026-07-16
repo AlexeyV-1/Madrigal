@@ -12,7 +12,7 @@ $color-dark-gray--2: #AAAAAA;
 
 // Landing 2.0 color's
 $color-white: #ffffff;
-$color-black: #000000;
+$color-black: #131516;
 $color-nero-70: rgba(39, 36, 36, 0.7);
 $color-dodger-blue-90: rgba(39, 135, 245, 0.9);
 $color-biloba-flower-90: rgba(163, 147, 245, 0.9);
@@ -24,6 +24,7 @@ $color-gray: #7D7D7D;
 $color-gray-light: #E0E0E0;
 $color-gray-light-2: #3F3F3F;
 $color-gray-dark: #9F9F9F;
+$color-error: #FF1B1B;
 
 @theme {
     --color-white-custom: #ffffff;
@@ -31,13 +32,15 @@ $color-gray-dark: #9F9F9F;
     --color-white-50-custom: rgba(255, 255, 255, 0.5);
     --color-white-70-custom: rgba(255, 255, 255, 0.7);
     --color-white-80-custom: rgba(255, 255, 255, 0.8);
-    --color-black-custom: #000000;
+    --color-black-custom: #131516;
     --color-cornflower-blue: #67A5EB;
     --color-black-40-custom: rgba(0, 0, 0, 0.40);
     --color-heliotrope: #DC5DFC;
     --color-montana: #393B3C;
-    --color-charcoal: #ff0000
+    --color-charcoal: #ff0000;
     --color-slate-blue: #6A5DC2;
+    --color-error: #FF1B1B;
+    --color-gray-light: #E0E0E0;
 }
 
 // Typography

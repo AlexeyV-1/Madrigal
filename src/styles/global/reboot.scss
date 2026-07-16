@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: $ff-monserat;
-  background-color: $color-gainsboro;
+  background-color: $color-black;
   @apply min-h-[100vh] flex flex-col;
 
   // &:has(.header) {

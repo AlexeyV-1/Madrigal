@@ -3,37 +3,62 @@
 
     &__field {
         transition: border-color $transition;
-        border-color: $color-gray;
-        @apply w-full border-[1px] outline-none px-[13px] py-[16px] rounded-[10px];
+        border-color: $color-dark-gray;
+        font-family: $ff-monserat;
+        @apply w-full border-[1px] outline-none px-[13px] py-[16px] rounded-[10px] text-white;
 
         &:has(~ .custom-input__error) {
-            @apply border-red-500;
+            @apply border-error;
 
             &~.custom-input__btn .custom-input__icon {
-                color: red;
+                color: $color-error;
             }
 
             &:hover,
-            &:focus-visible {
-                @apply border-red-500;
+            &:focus-visible,
+            &:active {
+                @apply border-error;
 
                 &~.custom-input__btn .custom-input__icon {
-                    color: red;
+                    color: $color-error;
                 }
+            } 
+        }
+
+        &:hover {
+            @apply border-gray-light;
+
+            &~.custom-input__btn .custom-input__icon {
+                color: $color-gray-light;
             }
         }
 
-        &:hover,
-        &:focus-visible {
-            @apply border-black;
+        &:focus-visible,
+        &:active {
+            @apply border-white;
 
             &~.custom-input__btn .custom-input__icon {
-                color: $color-black;
+                color: $color-white;
             }
         }
 
         &::placeholder {
             color: $color-dark-gray;
+        }
+
+        &:has(~ .custom-input__btn:hover) {
+            border-color: $color-gray-light
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 1000px $color-black inset;
+            -webkit-text-fill-color: $color-white;
+            caret-color: $color-white;
+            font-family: $ff-monserat;
+            background-color: $color-black;
         }
 
         &--query {
@@ -64,32 +89,35 @@
 
     &__btn {
         transform: translateY(-50%);
+        outline: none;
         @apply absolute right-[7px] top-[50%] z-20 cursor-pointer;
 
         &:has(~ .custom-input__error) .custom-input__icon {
-            color: red;
+            color: $color-error;
 
             &:hover,
-            &:focus-visible {
+            &:focus-visible,
+            &:active {
                 .custom-input__icon {
                     transform: scale(1.2);
-                    color: red;
+                    color: $color-error;
                 }
             }
         }
 
         &:hover,
-        &:focus-visible {
+        &:focus-visible,
+        &:active {
             .custom-input__icon {
                 transform: scale(1.2);
-                color: $color-black;
+                color: $color-gray-light;
             }
         }
     }
 
     &__icon {
         transition: color $transition, transform $transition;
-        color: $color-gray;
+        color: $color-dark-gray;
     }
 
     &--password {

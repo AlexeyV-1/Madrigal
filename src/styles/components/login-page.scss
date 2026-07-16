@@ -4,11 +4,21 @@
     @apply w-full h-full min-h-[100vh] flex justify-center items-center ;
 
     &__wrapper {
-        @apply flex flex-col gap-[64px] bg-white px-[20px] py-[40px] w-full rounded-[10px];
+        @apply flex flex-col gap-[64px] bg-black-custom px-[20px] py-[40px] w-full rounded-[10px] relative;
+
+        &::before {
+            width: calc(100% - 20px);
+            @apply absolute top-0 content-[''] h-[14px] left-[10px] border-[3px] border-white border-b-transparent
+        }
+
+        &::after {
+            width: calc(100% - 20px);
+            @apply absolute bottom-0 content-[''] h-[14px] left-[10px] border-[3px] border-white border-t-transparent
+        }
     }
 
     &__title {
-        @apply my-0 mx-[auto] font-semibold text-[32px]/[40px]
+        @apply my-0 mx-[auto] font-semibold text-[32px]/[40px] text-white
     }
 
     &__form {
@@ -16,10 +26,10 @@
     }
 
     &__btn {
-        @apply w-[200px] mt-[53px]
+        @apply mt-[40px]
     }
 
     &__error {
-        @apply text-red-500
+        @apply text-error
     }
 }
