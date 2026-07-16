@@ -1,12 +1,14 @@
 .login-page {
-    @apply w-full h-full min-h-[100vh] flex justify-center items-center;
+    font-family: $ff-tektur;
+    font-weight: 600;
+    @apply w-full h-full min-h-[100vh] flex justify-center items-center ;
 
     &__wrapper {
         @apply flex flex-col gap-[64px] bg-white px-[20px] py-[40px] w-full rounded-[10px];
     }
 
     &__title {
-        @apply font-bold my-0 mx-[auto]
+        @apply my-0 mx-[auto] font-semibold text-[32px]/[40px]
     }
 
     &__form {
