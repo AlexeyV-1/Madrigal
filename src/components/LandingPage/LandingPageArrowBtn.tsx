@@ -18,8 +18,6 @@ export default function LandingPageArrowBtn({
       className="scenary__item-btn"
       aria-label={isOpen ? 'Свернуть детали' : 'Развернуть детали'}
       style={{
-        background: 'none',
-        border: 'none',
         cursor: 'pointer',
         padding: 0,
         display: 'flex',

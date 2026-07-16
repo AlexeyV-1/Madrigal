@@ -13,10 +13,10 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     &__title {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 24px;
-        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+        color: $color-white;
     }
 
     &__item {
@@ -34,12 +34,18 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 16px;
             line-height: 24px;
             padding: 21px 0;
+
         }
 
         &-btn {
             display: inline-flex;
             flex-shrink: 0;
             cursor: pointer;
+            color: $color-white;
+            background-color: $color-red;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
         }
 
         &-wrapper {
@@ -97,5 +103,5 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-  background-color: #131516;
+    background-color: #131516;
 }
