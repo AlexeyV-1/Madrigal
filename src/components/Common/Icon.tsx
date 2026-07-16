@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 interface IconProps {
     role: 'microphone' | 'recording' | 'search' | 'home' | 'pie' | 'time' | 'static' | 'lock' |
-    'arrow' | 'arrow-down' | 'arrow-down-2' | 'arrow' | 'eye' | 'eye-closed' | 'logo'
+    'arrow' | 'arrow-down' | 'arrow-down-2' | 'arrow' | 'eye' | 'eye-closed' | 'logo' | 'tick'
     className: string
 }
 
@@ -110,6 +110,12 @@ export const Icon: FC<IconProps & React.SVGProps<SVGSVGElement>> = ({ role, clas
                             <stop offset="1" stopColor="#131516" />
                         </radialGradient>
                     </defs>
+                </svg>
+            )
+        case 'tick':
+            return (
+                <svg className={className} width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.91683 4.21254L7.12983 0L7.77792 0.648083L2.91683 5.50917L0 2.59233L0.648083 1.94425L2.91683 4.21254Z" fill="white" />
                 </svg>
             )
     }

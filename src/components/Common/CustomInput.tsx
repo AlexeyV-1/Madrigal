@@ -16,6 +16,7 @@ interface CustomInputBaseProps {
     errorMessage?: string,
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
     disabled?: boolean
+    contrast?: boolean
 }
 
 interface CustomInputPasswordProps extends Omit<CustomInputBaseProps, 'inputType'> {
@@ -29,7 +30,7 @@ export type CustomInputProps = CustomInputBaseProps | CustomInputPasswordProps
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     (props, ref) => {
         const { inputType, placeholder, id, required, labelValue, name, onChange, onBlur,
-            errorMessage, onKeyDown, inputValue, disabled } = props
+            errorMessage, onKeyDown, inputValue, disabled, contrast } = props
         const [input, setInput] = useState('')
 
         const handleInput: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -44,13 +45,11 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
         const passwordInputType = showPassword ? 'text' : 'password'
 
         return (
-            <div className={id == 'password' ? "custom-input custom-input--password" :
+            <div className={id == 'password' ? "custom-input custom-input--password" : contrast ? "custom-input custom-input--contrast" : 
                 "custom-input"
             }>
                 <input
-                    className={id == 'query' ? "custom-input__field custom-input__field--query" :
-                        "custom-input__field"
-                    }
+                    className={ id == 'query' ? "custom-input__field custom-input__field--query" : "custom-input__field"}
                     type={inputType == 'password' ? passwordInputType : inputType}
                     id={id}
                     ref={ref}

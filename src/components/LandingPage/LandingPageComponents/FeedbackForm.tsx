@@ -1,6 +1,5 @@
 'use client'
 
-import { ExitButton } from "@/components/WelcomePage/ExitButton"
 import { CustomInput } from "../../Common/CustomInput"
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -38,13 +37,14 @@ export function FeedbackForm() {
     }
 
     return (
-        <form className="feedback__form">
+        <form className="feedback-card__form">
             <CustomInput
                 inputType="text"
                 placeholder="Имя и Фамилия"
                 id='firstAndLastNames'
                 required={true}
                 {...register("firstAndLastNames")}
+                contrast={true}
                 errorMessage={errors.firstAndLastNames?.message ?? error?.firstAndLastNames}
             />
             <CustomInput
@@ -53,6 +53,7 @@ export function FeedbackForm() {
                 id='phoneNumber'
                 required={true}
                 {...register("nameOrganization")}
+                contrast={true}
                 errorMessage={errors.nameOrganization?.message ?? error?.nameOrganization}
             />
             <CustomInput
@@ -61,6 +62,7 @@ export function FeedbackForm() {
                 id='nameOrganization'
                 required={true}
                 {...register("phoneNumber")}
+                contrast={true}
                 errorMessage={errors.phoneNumber?.message ?? error?.phoneNumber}
             />
             <CustomCheckbox 
@@ -78,7 +80,7 @@ export function FeedbackForm() {
                 {...register("agreement")}
                 errorMessage={errors.agreement?.message ?? error?.agreement}
             />
-            <button className="feedback__btn feedback__btn--form btn" type="submit" disabled={!isValid || isSubmitting}>
+            <button className="feedback-card__btn feedback-card__btn--form btn" type="submit" disabled={!isValid || isSubmitting}>
                 Отправить заявку
             </button>
         </form>

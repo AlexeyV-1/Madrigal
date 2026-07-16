@@ -33,7 +33,9 @@ export const CustomCheckbox = forwardRef<HTMLInputElement, CustomCheckboxProps>(
                         onBlur={onBlur}
                         disabled={disabled}
                     />
-                    <span className="custom-input__indicator"></span>
+                    <span className="custom-input__indicator">
+                        <Icon role="tick" className="custom-input__tick-icon" />
+                    </span>
                     {labelValue && <label className="custom-input__label" htmlFor={id}>{labelValue}</label>}
                 </div>
                 {errorMessage && <span className="custom-input__error">{errorMessage}</span>}

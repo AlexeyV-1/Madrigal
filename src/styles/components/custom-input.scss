@@ -22,7 +22,7 @@
                 &~.custom-input__btn .custom-input__icon {
                     color: $color-error;
                 }
-            } 
+            }
         }
 
         &:hover {
@@ -84,7 +84,7 @@
 
     &__error {
         animation: appearance $transition-animation 1 forwards;
-        @apply text-red-500 absolute top-[-18px] text-[12px]/[15px] left-[3px]
+        @apply text-red-500 absolute top-[-21px] text-[12px]/[15px] left-[3px]
     }
 
     &__btn {
@@ -126,40 +126,82 @@
         }
     }
 
+    &--contrast {
+        transition: margin $transition;
+
+        .custom-input__field {
+            border-color: $color-very-dark-gray--2;
+            color: $color-black;
+
+            &:hover,
+            &:focus-visible,
+            &:active {
+                border-color: $color-black;
+            }
+
+            &::placeholder {
+                color: $color-very-dark-gray--2
+            }
+        }
+
+        &:has(.custom-input__error) {
+            .custom-input__field {
+                border-color: $color-error;
+            }
+
+            &:not(:first-child) {
+                margin-top: 22px;
+            }
+        }
+    }
+
     &--checkbox {
-        @apply mb-[15px];
+        @apply mb-[18px];
+
         .custom-input__wrapper {
-            @apply flex gap-[14px] justify-start items-center relative
+            @apply flex gap-[10px] justify-start relative
         }
 
         .custom-input__field {
-            @apply relative w-[11px] opacity-0 cursor-pointer;
+            @apply relative w-[11px] h-[11px] opacity-0 cursor-pointer top-0;
 
-            &:checked + .custom-input__indicator::before {
+            &:checked +.custom-input__indicator::before {
+                @apply opacity-100
+            }
+
+            &:checked + .custom-input__indicator .custom-input__tick-icon {
                 @apply opacity-100
             }
         }
 
         .custom-input__indicator {
-            @apply w-[11px] h-[11px] border-[1px] border-black absolute rounded-[2px] top-[5px] cursor-pointer pointer-events-none;
+            @apply w-[11px] h-[11px] border-[1px] border-black absolute rounded-[2px] top-0 cursor-pointer pointer-events-none;
 
             &::before {
+                transition: opacity $transition;
                 @apply w-[11px] h-[11px] bg-black absolute content-[''] top-0 opacity-0 cursor-pointer
             }
         }
 
         .custom-input__label {
             position: unset;
-            @apply text-[12px]/[15px]
+            @apply text-[12px]/[15px] text-black-custom
         }
 
         .custom-input__text, .custom-input__link {
-            @apply text-[12px]/[15px] text-charcoal
+            @apply text-[12px]/[15px]
         }
 
         .custom-input__error {
             top: calc(100%);
-            @apply left-[3px]
+            @apply left-[3px] mt-[6px]
+
+        }
+
+        .custom-input__tick-icon {
+            transition: opacity $transition;
+            transform: translate(-50%, -50%);
+            @apply absolute top-[50%] left-[50%] pointer-events-none opacity-0 text-white 
         }
     }
 }

@@ -1,5 +1,5 @@
 import { ExitButton } from "@/components/Common/ExitButton"
-import { FeedbackForm } from "./FeedbackForm"
+import { FeedbackCard } from "./FeedbackCard"
 
 export function LandingPageFeedback() {
     return (
@@ -11,14 +11,7 @@ export function LandingPageFeedback() {
                 Начать аналитику
             </ExitButton>
 
-            <div className="feedback__card">
-                <div className="feedback__wrapper">
-                    <h2 className="feedback__card-title">Обсудить проект</h2>
-                    <p className="feedback__card-text">Оставьте контакты, и мы адаптируем frontend-прототип
-                        платформы под специфику ваших ведомственных или корпоративных данных.</p>
-                    <FeedbackForm />
-                </div>
-            </div>
+            <FeedbackCard />
         </section>
     )
 }
