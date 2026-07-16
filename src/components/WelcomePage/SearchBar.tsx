@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Icon } from '../Common/Icon';
-import { ExitButton } from './ExitButton';
+import { ExitButton } from '../Common/ExitButton';
 import { CustomInput } from '../Common/CustomInput';
 import { VoiceRecordButton } from './VoiceRecordButton';
 import Link from 'next/link';

@@ -1,5 +1,3 @@
-import { Icon } from "@/components/Common/Icon"
-import LandingPageArrowBtn from "../LandingPageArrowBtn"
 import LandingPageScenaryItem from "../LandingPageScenaryItem"
 
 export function LandingPageScenary() {
@@ -24,10 +22,12 @@ export function LandingPageScenary() {
     return (
         <section className='scenary'>
             <h2 className="scenary__title">Сценарии применения</h2>
-
             <ul className="scenary__list">
+                <div className="scenary__list-head">
+                    
+                </div>
                 {landingScenaryContent.map((obj) => (
-                    <li key={obj.summary} className="scenary__item-li">
+                    <li key={obj.summary} className="scenary__item">
                         <LandingPageScenaryItem
                             summary={obj.summary}
                             title={obj.title}

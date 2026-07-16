@@ -1,0 +1,101 @@
+$transition: cubic-bezier(0.4, 0, 0.2, 1);
+
+.scenary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+
+    &__item {
+        display: flex;
+        background-color: $color-light-gray;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        width: 100%;
+        cursor: pointer;
+
+        &-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 21px 0;
+        }
+
+        &-btn {
+            display: inline-flex;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        &-wrapper {
+            border-radius: 8px;
+            overflow: hidden;
+            transition:
+                max-height 0.3s $transition,
+                background-color 0.3s $transition;
+            max-height: 76px;
+
+            &--active {
+                max-height: 1000px;
+                opacity: 1;
+                pointer-events: auto;
+                background-color: $color-very-color-light-gray;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    }
+
+    &__details {
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition:
+            opacity 0.3s $transition,
+            transform 0.3s $transition;
+        padding: 10px 13px 22px 13px;
+
+        &-title {
+            font-weight: 700;
+            line-height: 24px;
+            margin: 0 0 10px 0;
+        }
+
+        &-symbol {
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+
+            &--active {
+                transform: rotate(90deg);
+            }
+        }
+
+        &-text {
+            line-height: 24px;
+        }
+    }
+}
+
+.scenary__item-wrapper--active .scenary__details {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+body {
+  background-color: #131516;
+}

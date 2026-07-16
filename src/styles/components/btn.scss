@@ -8,7 +8,7 @@
     background-color: $color-black;
     color: $color-white;
     cursor: pointer;
-    transition: background-color $transition;
+    transition: background-color ease-in 0.3s;
 
     &:hover {
         background-color: $color-very-dark-gray;

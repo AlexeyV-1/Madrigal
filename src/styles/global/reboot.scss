@@ -9,13 +9,11 @@ body {
   background-color: $color-gainsboro;
   @apply min-h-[100vh] flex flex-col;
 
-  &:has(.header) {
-    background-color: $color-white;
-  }
+  // &:has(.header) {
+  //   background-color: $color-white;
+  // }
 }
 
 main {
   flex-grow: 1;
 }
-
-

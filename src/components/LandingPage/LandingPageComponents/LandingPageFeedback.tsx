@@ -1,5 +1,4 @@
-import { ExitButton } from "@/components/WelcomePage/ExitButton"
-import { FeedbackForm } from "./FeedbackForm"
+import { ExitButton } from "@/components/Common/ExitButton"
 
 export function LandingPageFeedback() {
     return (

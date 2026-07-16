@@ -1,4 +1,4 @@
-import { ExitButton } from "@/components/WelcomePage/ExitButton"
+import { ExitButton } from "@/components/Common/ExitButton"
 
 export function LandingPageHero() {
     return (

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Icon } from '../Common/Icon';
+import { Icon } from './Icon';
 
 interface ExitButtonProps {
   className?: string;
