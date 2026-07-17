@@ -65,7 +65,7 @@ export function FeedbackForm() {
                 contrast={true}
                 errorMessage={errors.phoneNumber?.message ?? error?.phoneNumber}
             />
-            <CustomCheckbox 
+            <CustomCheckbox
                 inputType="checkbox"
                 id='agreement'
                 required={true}
@@ -87,6 +87,6 @@ export function FeedbackForm() {
     )
 
     // <ExitButton href="/welcomepage" className="feedback__card-btn btn" noBaseStyle={true}>
-          //   Отправить заявку
-          //   </ExitButton>
+    //   Отправить заявку
+    //   </ExitButton>
 }

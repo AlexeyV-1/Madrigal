@@ -23,9 +23,6 @@ export function LandingPageScenary() {
         <section className='scenary'>
             <h2 className="scenary__title">Сценарии применения</h2>
             <ul className="scenary__list">
-                <div className="scenary__list-head">
-
-                </div>
                 {landingScenaryContent.map((obj) => (
                     <li key={obj.summary} className="scenary__item">
                         <LandingPageScenaryItem

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import LandingPageArrowBtn from './LandingPageArrowBtn';
+import { Icon } from '../Common/Icon';
 
 interface LandingPageScenaryItemProps {
     summary: string;
@@ -39,16 +40,20 @@ export default function LandingPageScenaryItem({
             style={{ cursor: 'pointer' }}
         >
             <div className="scenary__item">
-                <p className="scenary__item-text">{summary}</p>
+                <div className="scenary__item-head">
 
-                <LandingPageArrowBtn
-                    isOpen={isOpen}
-                    onToggle={() => handleArrowClick}
-                />
+
+                    <p className="scenary__item-text">{summary}</p>
+
+                    <LandingPageArrowBtn
+                        isOpen={isOpen}
+                        onToggle={() => handleArrowClick}
+                    />
+                </div>
             </div>
-
             <div id="scenary-details" className="scenary__details">
                 <h3 className="scenary__details-title">{title}</h3>
+                <Icon className='scenary__details-icon' role='arrow-down-2' />
                 <p className="scenary__details-text">{text}</p>
             </div>
         </div>

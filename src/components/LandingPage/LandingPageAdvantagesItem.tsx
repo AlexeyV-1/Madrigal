@@ -19,13 +19,15 @@ export default function LandingPageAdvantagesItem({
 }: LandingPageAdvantagesItemProps) {
     return (
         <div className="advantages__card">
-            <div className="advantages__card-head">
-                <div className="advantages__card-icon-wrapper">
-                    <Icon role={iconRole} aria-label="Тематическое изображение" className="advantages__card-icon" />
+            <div className="advantages__card-wrapper">
+                <div className="advantages__card-head">
+                    <div className="advantages__card-icon-wrapper">
+                        <Icon role={iconRole} aria-label="Тематическое изображение" className="advantages__card-icon" />
+                    </div>
+                    <div className="advantages__card-title">{title}</div>
                 </div>
-                <div className="advantages__card-title">{title}</div>
+                <p className="advantages__card-text">{text}</p>
             </div>
-            <p className="advantages__card-text">{text}</p>
         </div>
     );
 }

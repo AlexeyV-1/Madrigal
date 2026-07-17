@@ -17,24 +17,30 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
         font-size: 32px;
         line-height: 40px;
         color: $color-white;
+        font-family: $ff-tektur;
     }
 
     &__item {
         display: flex;
         background-color: $color-light-gray;
-        border-radius: 10px;
+        border-radius: 10px 10px 0 0;
         align-items: center;
         justify-content: space-between;
         padding: 0;
         width: 100%;
         cursor: pointer;
 
+        &-head {
+            padding: 14px;
+            display: flex;
+            gap: 23px;
+        }
+
         &-text {
             font-weight: 500;
             font-size: 16px;
             line-height: 24px;
-            padding: 21px 0;
-
+            font-family: $ff-tektur;
         }
 
         &-btn {
@@ -49,19 +55,38 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &-wrapper {
-            border-radius: 8px;
             overflow: hidden;
             transition:
                 max-height 0.3s $transition,
                 background-color 0.3s $transition;
             max-height: 76px;
+            background-color: $color-black;
 
             &--active {
                 max-height: 1000px;
                 opacity: 1;
                 pointer-events: auto;
-                background-color: $color-very-color-light-gray;
-                border-radius: 0 0 10px 10px;
+
+                .scenary__item {
+                    background-color: $color-red;
+                }
+
+                .scenary__item-text {
+                    color: $color-white;
+                }
+
+                .scenary__item-btn {
+                    background-color: $color-white;
+                    color: $color-black;
+                }
+
+                .scenary__details {
+                    background-color: $color-white;
+
+                    .scenary__details-title {
+                        color: $color-black;
+                    }
+                }
             }
         }
     }
@@ -74,11 +99,20 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
             opacity 0.3s $transition,
             transform 0.3s $transition;
         padding: 10px 13px 22px 13px;
+        background-color: $color-black;
+        border-radius: 0 0 10px 10px;
 
         &-title {
-            font-weight: 700;
-            line-height: 24px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
             margin: 0 0 10px 0;
+            color: $color-white;
+        }
+
+        &-icon {
+            margin: 0 auto 5px;
+            color: $color-black;
         }
 
         &-symbol {
@@ -91,7 +125,9 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &-text {
-            line-height: 24px;
+            line-height: 20px;
+            font-size: 16px;
+            color: $color-gray;
         }
     }
 }
