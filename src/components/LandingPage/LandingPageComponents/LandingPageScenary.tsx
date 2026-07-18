@@ -1,4 +1,4 @@
-import LandingPageScenaryItem from "./LandingPageScenaryItem"
+import ScenaryCard from "./ScenaryCard"
 
 export function LandingPageScenary() {
     const landingScenaryContent = [
@@ -25,7 +25,7 @@ export function LandingPageScenary() {
             <ul className="scenary__list">
                 {landingScenaryContent.map((obj) => (
                     <li key={obj.summary} className="scenary__item">
-                        <LandingPageScenaryItem
+                        <ScenaryCard
                             summary={obj.summary}
                             title={obj.title}
                             text={obj.text}

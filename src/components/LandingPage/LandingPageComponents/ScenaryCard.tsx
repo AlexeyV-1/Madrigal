@@ -10,7 +10,7 @@ interface LandingPageScenaryItemProps {
     text: string;
 }
 
-export default function LandingPageScenaryItem({
+export default function ScenaryCard({
     summary,
     title,
     text,
@@ -52,7 +52,7 @@ export default function LandingPageScenaryItem({
             <div id="scenary-details" className="scenary-card__details">
                 <div className="scenary-card__inner">
                     <h3 className="scenary-card__title">{title}</h3>
-                    <Icon className='scenary-card__icon' role='arrow-down-2' />
+                    <Icon className='scenary-card__icon scenary-card__icon--arrow' role='arrow-down-2' />
                     <p className="scenary-card__text-details">{text}</p>
                 </div>
             </div>

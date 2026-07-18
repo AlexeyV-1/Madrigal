@@ -46,6 +46,10 @@
             color: $color-red;
             transform: rotate(90deg);
         }
+
+        &--arrow {
+            margin-bottom: 10px;
+        }
     }
 
     &__details {

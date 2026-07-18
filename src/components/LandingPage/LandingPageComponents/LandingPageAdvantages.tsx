@@ -1,4 +1,4 @@
-import LandingPageAdvantagesItem from './LandingPageAdvantagesItem'
+import AdvantagesCard from './AdvantagesCard'
 
 export default function LandingPageAdvantages() {
     const advantagesContent = [
@@ -31,16 +31,17 @@ export default function LandingPageAdvantages() {
     return (
         <section className="advantages">
             <h2 className="advantages__title">Преимущества решения</h2>
-            <div className="advantages__list">
+            <ul className="advantages__list">
                 {advantagesContent.map((item) => (
-                    <LandingPageAdvantagesItem
-                        key={item.id}
-                        title={item.title}
-                        text={item.text}
-                        iconRole={item.iconRole}
-                    />
+                    <li className="advantages__item" key={item.id}>
+                        <AdvantagesCard
+                            title={item.title}
+                            text={item.text}
+                            iconRole={item.iconRole}
+                        />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 }
