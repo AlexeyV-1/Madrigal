@@ -1,0 +1,14 @@
+.animation-wrapper {
+    @apply opacity-0;
+
+    animation: appearance $transition-page forwards;
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

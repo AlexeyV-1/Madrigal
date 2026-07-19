@@ -16,6 +16,7 @@ export default function FormLoginComponent() {
     const router = useRouter()
     const [error, setError] = useState<ErrorMessage | null>(null)
     const [showPassword, setShowPassword] = useState(false)
+    const [animationPage, setAnimationPage] = useState(false)
 
     const {
         register,
@@ -36,7 +37,12 @@ export default function FormLoginComponent() {
             data.password === '1234567890'
         ) {
             setError(null)
+            setAnimationPage(true)
+
+        setTimeout(() => {
             router.push('/landingpage')
+            // setAnimationPage(false)
+        }, 500)
         } else {
             setError({
                 email: 'Неверный email',
@@ -51,7 +57,7 @@ export default function FormLoginComponent() {
     }, [watch])
 
     return (
-        <form className="login-page__form" noValidate={true} onSubmit={handleSubmit(handleClick)}>
+        <form className={animationPage ? "login-page__form login-page__form--active" : "login-page__form"} noValidate={true} onSubmit={handleSubmit(handleClick)}>
             <CustomInput
                 inputType="email"
                 placeholder="Логин"

@@ -66,6 +66,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
                 {isPassword && <button
                     className="custom-input__btn"
                     onClick={onTogglePassword}
+                    type="button"
                 >  {showPassword ? <Icon role="eye-closed" className='custom-input__icon' /> :
                     <Icon role="eye" className='custom-input__icon' />
                     }

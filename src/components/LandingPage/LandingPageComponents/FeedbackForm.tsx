@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ApplicationScheme, Application } from "@/api/types";
-import { useState, useEffect } from "react";
+import { SuccessFeedback } from "./SuccessFeedback";
+import { useState } from "react";
 import { CustomCheckbox } from '../../Common/CustomCheckbox'
 
 interface ErrorMessage {
@@ -18,6 +19,7 @@ interface ErrorMessage {
 export function FeedbackForm() {
     const router = useRouter()
     const [error, setError] = useState<ErrorMessage | null>(null)
+    const [success, setSuccess] = useState<boolean>(false)
 
     const {
         register,
@@ -32,12 +34,16 @@ export function FeedbackForm() {
     /**
      * TODO: заменить на реальный запрос к API
      */
-    const handleClick = () => {
-        alert('YEAH!')
+    const Success = () => {
+        setSuccess(true)
+
+        setTimeout(() => {
+            setSuccess(false)
+        }, 6000)
     }
 
     return (
-        <form className="feedback-card__form">
+        <form className="feedback-card__form" onSubmit={handleSubmit(Success)}>
             <CustomInput
                 inputType="text"
                 placeholder="Имя и Фамилия"
@@ -83,6 +89,7 @@ export function FeedbackForm() {
             <button className="feedback-card__btn feedback-card__btn--form btn" type="submit" disabled={!isValid || isSubmitting}>
                 Отправить заявку
             </button>
+            <SuccessFeedback state={success}/>
         </form>
     )
 

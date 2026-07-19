@@ -3,6 +3,7 @@ import { SearchBar } from './SearchBar';
 
 export default function WelcomePage() {
     return (
+        <div className='animation-wrapper'>
         <div className='container'>
             <div className="welcome-page">
                 <div className="welcome-page__content-wrapper">
@@ -14,6 +15,7 @@ export default function WelcomePage() {
                     <SearchBar />
                 </div>
             </div>
+        </div>
         </div>
     );
 }

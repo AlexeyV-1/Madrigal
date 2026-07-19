@@ -8,7 +8,7 @@ export function LandingPageHero() {
             <p className="hero__text"><b>«Мадригал»</b> собирает разрозненные ведомственные и корпоративные отчеты
                 в единую аналитическую экосистему. Прогнозируйте риски и находите скрытые аномалии с
                 помощью встроенных моделей ИИ.</p>
-            <ExitButton href="/welcomepage" className="hero__btn btn" noBaseStyle={true}>
+            <ExitButton href="/welcomepage" className="btn hero__btn" noBaseStyle={true}>
                 Начать аналитику
             </ExitButton>
         </section>

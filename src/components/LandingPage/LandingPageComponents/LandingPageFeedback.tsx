@@ -7,7 +7,7 @@ export function LandingPageFeedback() {
             <h2 className='feedback__title'>Начните управлять данными на новом уровне</h2>
             <p className="feedback__text">Протестируйте интерактивные сценарии ИИ-модуля на фиктивных данных прямо
                 сейчас.</p>
-            <ExitButton href="/welcomepage" className="feedback__btn btn" noBaseStyle={true}>
+            <ExitButton href="/welcomepage" className="btn feedback__btn" noBaseStyle={true}>
                 Начать аналитику
             </ExitButton>
 

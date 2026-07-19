@@ -1,7 +1,9 @@
-'use client';
+'use client'
 
 import Link from 'next/link';
 import { Icon } from './Icon';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface ExitButtonProps {
   className?: string;
@@ -21,11 +23,28 @@ export const ExitButton = ({
   const hasText = !!children;
   const baseClass = noBaseStyle ? '' : 'search-bar__btn-home';
 
+  const router = useRouter()
+  const [animationPage, setAnimationPage] = useState(false)
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setAnimationPage(true)
+
+    setTimeout(() => {
+      router.push(href)
+    }, 500)
+  }
+
+  const animationClass = animationPage ? `${className} ${className}--active` : `${className}`
+  const animationBaseClass = baseClass && ( animationPage ? `${baseClass} ${baseClass}--active` : `${baseClass}` )
+  const classBtn = `${animationBaseClass} ${animationClass}`.trim()
+
   return (
     <Link
       href={href}
-      className={`${baseClass} ${className}`.trim()}
+      className={classBtn}
       aria-label={hasText ? undefined : ariaLabel}
+      onClick={handleClick}
       style={{
         display: 'inline-flex',
         alignItems: 'center',

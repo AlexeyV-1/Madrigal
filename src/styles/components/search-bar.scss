@@ -25,6 +25,18 @@
             background-color: #8A2BE2;
             color: #8A2BE2;
         }
+
+        &::before {
+            transform: translateX(100vw);
+            transition: transform $transition-page;
+            @apply w-[100vw] h-[100vh] bg-black-custom rounded-[20px] content-[''] absolute z-40 opacity-100 top-0 left-0;
+        }
+
+        &--active {
+            &::before {
+                transform: translateX(0);
+            }
+        }
     }
 
     &__btn-search {

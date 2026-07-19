@@ -27,4 +27,18 @@
         margin: 0 0 35px;
         color: $color-gray-light;
     }
+
+    &__btn {
+        &::before {
+            transform: translate(100vw, 0);
+            transition: transform $transition-page;
+            @apply w-[100vw] h-[200vh] bg-black-custom rounded-[20px] content-[''] absolute z-40 opacity-100
+        }
+
+        &--active {
+            &::before {
+                transform: translate(0, 0);
+            }
+        }
+    }
 }
