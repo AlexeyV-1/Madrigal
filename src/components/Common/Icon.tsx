@@ -2,7 +2,8 @@ import { FC } from 'react';
 
 interface IconProps {
     role: 'microphone' | 'recording' | 'search' | 'home' | 'pie' | 'time' | 'static' | 'lock' |
-    'arrow' | 'arrow-down' | 'arrow-down-2' | 'arrow' | 'eye' | 'eye-closed' | 'logo' | 'tick'
+    'arrow' | 'arrow-down' | 'arrow-down-2' | 'arrow' | 'eye' | 'eye-closed' | 'logo' | 'tick' |
+    'faq'
     className: string
 }
 
@@ -117,6 +118,20 @@ export const Icon: FC<IconProps & React.SVGProps<SVGSVGElement>> = ({ role, clas
                 <svg className={className} width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.91683 4.21254L7.12983 0L7.77792 0.648083L2.91683 5.50917L0 2.59233L0.648083 1.94425L2.91683 4.21254Z" fill="white" />
                 </svg>
+            )
+        case 'faq':
+            return (
+                <svg className={className} width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0_335_448)">
+                        <path d="M11.5 23C5.14855 23 0 17.8514 0 11.5C0 5.14855 5.14855 0 11.5 0C17.8514 0 23 5.14855 23 11.5C23 17.8514 17.8514 23 11.5 23ZM11.5 8.625C11.9575 8.625 12.3963 8.44326 12.7198 8.11976C13.0433 7.79626 13.225 7.3575 13.225 6.9C13.225 6.4425 13.0433 6.00374 12.7198 5.68024C12.3963 5.35674 11.9575 5.175 11.5 5.175C11.0425 5.175 10.6037 5.35674 10.2802 5.68024C9.95674 6.00374 9.775 6.4425 9.775 6.9C9.775 7.3575 9.95674 7.79626 10.2802 8.11976C10.6037 8.44326 11.0425 8.625 11.5 8.625ZM13.8 14.95H12.65V9.775H9.2V12.075H10.35V14.95H9.2V17.25H13.8V14.95Z" fill="#9F9F9F" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_335_448">
+                            <rect width="23" height="23" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+
             )
     }
 };
