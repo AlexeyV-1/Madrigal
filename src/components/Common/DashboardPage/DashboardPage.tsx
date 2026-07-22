@@ -1,5 +1,5 @@
 import { DashboardMain } from "./DashboardComponents/DashboardMain"
-import { Header } from "../../Common/header"
+import { Header } from "../header"
 
 export default function DashboardPage() {
     return (

@@ -1,1 +1,79 @@
 // In process...
+
+.welcome {
+
+    &__faq {
+        &-btn {
+            display: flex;
+            margin-left: auto;
+            cursor: pointer;
+            margin-bottom: 80px;
+        }
+    }
+
+    &__title {
+        font-family: $ff-tektur;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+        color: $color-white;
+        margin: 0 0 107px;
+    }
+
+
+    &__action-btn {
+        margin-bottom: 17px;
+    }
+
+
+    &__question {
+        font-family: $ff-tektur;
+        margin: 0 0 15px;
+        text-align: center;
+        color: $color-white;
+        line-height: 130%;
+    }
+
+    &__quick-list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        margin-bottom: 117px;
+    }
+
+    &__item-btn {
+        font-size: 12px;
+        line-height: 130%;
+        color: $color-white;
+        cursor: pointer;
+        background-color: $color-black-hover;
+        border-radius: 15px;
+        padding-block: 8px;
+        padding-inline: 16px;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    &__actions {
+
+        &-group {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            align-items: flex-end;
+            margin-bottom: 13px;
+        }
+    }
+
+    &__add-btn,
+    &__attachment-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: $color-red;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+    }
+}

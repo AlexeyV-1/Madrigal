@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { Icon } from '../Common/Icon';
+import { Icon } from '../Icon';
 
 interface VoiceRecordButtonProps {
   voiceFn: () => void;
