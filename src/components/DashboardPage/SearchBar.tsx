@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Icon } from '../Icon';
-import { CustomInput } from '../CustomInput';
+import { Icon } from '../Common/Icon';
+import { CustomInput } from '../Common/CustomInput';
+import { useRouter } from "next/navigation";
 
 export function SearchBar() {
   const [query, setQuery] = useState('');
   // const [isVoiceActive, setIsVoiceActive] = useState(false);
+  const router = useRouter()
 
   // const handleVoice = () => {
   //   setIsVoiceActive((prev) => !prev);
@@ -14,8 +16,17 @@ export function SearchBar() {
 
   const hasText = query.trim().length > 0
 
+  const handleSubmit = (query: string) => {
+    if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит') {
+      router.push('/querypage')
+    }
+  }
+
   return (
-    <div className="welcome__search-btn">
+    <form className="welcome__search-btn" onSubmit={(e) => {
+      e.preventDefault()
+      handleSubmit(query)
+    }}>
       <CustomInput
         inputType="text"
         placeholder="Задайте вопрос"
@@ -26,23 +37,27 @@ export function SearchBar() {
         id="query"
         required={false}
       />
-
       {!hasText && (
-        <Icon
-          className="welcome__search-icon"
-          role="microphone"
-          aria-label="Голосовой ввод"
-        />
+        <button className="welcome__search--microphone"
+        type='button'>
+          <Icon
+            className="welcome__search-icon"
+            role="microphone"
+            aria-label="Голосовой ввод"
+          />
+        </button>
       )}
-
       {hasText && (
-        <Icon
-          className="welcome__search-icon--send"
-          role="send"
-          aria-label="Отправить запрос"
-        />
+        <button className="welcome__search--send"
+        type='submit'>
+          <Icon
+            className="welcome__search-icon--send"
+            role="send"
+            aria-label="Отправить запрос"
+          />
+        </button>
       )}
-    </div>
+    </form>
   );
 }
 

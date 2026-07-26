@@ -4,7 +4,7 @@
     &__field {
         transition: border-color $transition;
         border-color: $color-dark-gray;
-        font-family: $ff-monserat;
+        font-family: $ff-montserrat;
         @apply w-full border-[1px] outline-none px-[13px] py-[16px] rounded-[10px] text-white;
 
         &:has(~ .custom-input__btn:hover, ~ .custom-input__error) {
@@ -61,7 +61,7 @@
             -webkit-box-shadow: 0 0 0 1000px $color-black inset;
             -webkit-text-fill-color: $color-white;
             caret-color: $color-white;
-            font-family: $ff-monserat;
+            font-family: $ff-montserrat;
             background-color: $color-black;
         }
 
@@ -154,7 +154,7 @@
                 -webkit-box-shadow: 0 0 0 1000px $color-light-gray inset;
                 -webkit-text-fill-color: $color-black;
                 caret-color: $color-black;
-                font-family: $ff-monserat;
+                font-family: $ff-montserrat;
                 background-color: $color-light-gray;
             }
         }

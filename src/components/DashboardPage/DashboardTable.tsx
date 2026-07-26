@@ -1,5 +1,5 @@
-import { Icon } from "../../Icon"
-import WelcomeBtn from "../WelcomeBtn"
+import { Icon } from "../Common/Icon"
+import WelcomeBtn from "./WelcomeBtn"
 
 export default function DashboardTable() {
     return (

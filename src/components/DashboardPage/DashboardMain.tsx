@@ -1,6 +1,5 @@
 import DashboardWelcome from "./DashboardWelcome"
 import DashboardTable from "./DashboardTable"
-import DashboardPage from "../DashboardPage"
 
 export function DashboardMain() {
     return (

@@ -1,4 +1,5 @@
 .animation-wrapper {
+    min-height: 100vh;
     @apply opacity-0;
 
     animation: appearance $transition-page forwards;

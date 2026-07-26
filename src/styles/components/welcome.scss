@@ -11,7 +11,7 @@ button,
 input,
 select,
 textarea {
-    font-family: $ff-monserat;
+    font-family: $ff-montserrat;
 }
 
 .welcome {
@@ -36,11 +36,17 @@ textarea {
         color: $color-white;
         margin: 0 0 107px;
         text-align: center;
+        pointer-events: none;
     }
-
 
     &__action-btn {
         margin-bottom: 17px;
+    }
+
+    &__inner {
+        position: absolute;
+        top: calc(50% - 40px);
+        width: calc(100% - 32px);
     }
 
     &__question {
@@ -49,13 +55,14 @@ textarea {
         text-align: center;
         color: $color-white;
         line-height: 130%;
+        pointer-events: none;
     }
 
     &__quick-list {
         display: flex;
         flex-direction: column;
         gap: 11px;
-        margin-bottom: 117px;
+        width: 100%;
     }
 
     &__item-btn {
@@ -72,6 +79,9 @@ textarea {
     }
 
     &__actions {
+        position: absolute;
+        bottom: 19px;
+        width: calc(100% - 32px);
         &-group {
             display: flex;
             flex-direction: column;
@@ -96,6 +106,14 @@ textarea {
     &__search {
         &-btn {
             position: relative;
+            width: 100%;
+        }
+
+        &--send, 
+        &--microphone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         &-icon,

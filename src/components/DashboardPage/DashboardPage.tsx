@@ -1,10 +1,10 @@
-import { DashboardMain } from "./DashboardComponents/DashboardMain"
-import { Header } from "../header"
+import { DashboardMain } from "./DashboardMain"
+import { Header } from "@/components/Common/Header"
 
 export default function DashboardPage() {
     return (
         <div className="animation-wrapper">
-            <Header />
+            <Header page="dashboard"/>
             <main>
                 <DashboardMain />
             </main>

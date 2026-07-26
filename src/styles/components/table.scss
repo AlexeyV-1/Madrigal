@@ -1,6 +1,9 @@
 .table {
     position: relative;
     margin-bottom: 130px;
+    opacity: 0;
+    pointer-events: none;
+    top: -200px;
 
     &__panel {
         background-color: $color-gray-light;

@@ -1,11 +1,35 @@
 .header {
     height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 34px;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__btn {
+        display: none;
+        cursor: pointer;
+    }
+
+    &--landing {
+        margin-bottom: 34px;
+    }
+
+    &--dashboard {
+        margin-bottom: 15px;
+    }
+
+    &--query {
+        margin-bottom: 20px;
+        
+        .header__btn {
+            display: block;
+        }
+    }
 
     .container {
-        min-height: 0;
+        height: 100%;
     }
 }
