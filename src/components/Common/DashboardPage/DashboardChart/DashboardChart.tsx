@@ -1,5 +1,5 @@
 import { Icon } from "../../Icon";
-import WelcomeBtn from "../WelcomeBtn";
+import WelcomeBtn from "../../../DashboardPage/WelcomeBtn";
 import { ImageAsset } from "../../Image";
 
 export default function DashboardChart() {

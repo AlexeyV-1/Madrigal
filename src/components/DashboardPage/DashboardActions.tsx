@@ -1,5 +1,5 @@
-import { Icon } from '../../Icon';
-import { SearchBar } from '../SearchBar';
+import { Icon } from '../Common/Icon';
+import { SearchBar } from '../DashboardPage/SearchBar';
 
 interface DashboardActionsProps {
     onToggleChart: () => void;

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import DashboardWelcome from './DashboardWelcome';
 import DashboardActions from './DashboardActions';
-import DashboardTable from "./DashboardTable";
-import DashboardChart from '../DashboardChart/DashboardsChart';
+// import DashboardTable from "./DashboardTable";
+import DashboardChart from '../Common/DashboardPage/DashboardChart/DashboardChart';
 
 export function DashboardMain() {
     const [isChartVisible, setIsChartVisible] = useState(false);
