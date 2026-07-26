@@ -15,10 +15,7 @@ textarea {
 }
 
 .welcome {
-// Create Section Table
-    // display: none;
-
-
+    
     &__faq {
         &-btn {
             display: flex;
@@ -38,7 +35,6 @@ textarea {
         text-align: center;
     }
 
-
     &__action-btn {
         margin-bottom: 17px;
     }
@@ -55,7 +51,7 @@ textarea {
         display: flex;
         flex-direction: column;
         gap: 11px;
-        margin-bottom: 117px;
+        margin-bottom: 60px;
     }
 
     &__item-btn {
