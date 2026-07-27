@@ -1,5 +1,4 @@
 .statistics {
-
     &__text {
         font-size: 14px;
         line-height: 20px;
@@ -109,29 +108,43 @@
         justify-content: center;
         cursor: pointer;
     }
-}
 
-// Input Selected
-.filter {
+    &__range-wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 19px;
+        grid-template-columns: repeat(7, 22px);
+        min-height: 120px;
+        position: relative;
+        margin: 78px auto 0 auto;
+    }
 
-    &__wrapper {
+    &__range-years {
+        gap: 13px;
         display: flex;
-        gap: 36px;
+        position: absolute;
+        top: 85px;
+        left: 53px;
     }
 
-    &__group {
-        display: inline;
-    }
-
-    &__element {
-        font-weight: 600;
+    &__range-year {
         font-size: 12px;
         line-height: 130%;
-        background-color: $color-white;
+        color: $color-white;
+    }
+
+    &__range-procents {
+        gap: 25px;
+        display: flex;
+        position: absolute;
+        top: -55px;
+        left: 58px;
+    }
+
+    &__range-procent {
+        font-weight: 600;
+        font-size: 8px;
+        line-height: 130%;
         color: $color-red;
-        border-radius: 5px;
-        cursor: pointer;
-        padding: 4px 7px;
-        width: 95px;
     }
 }
