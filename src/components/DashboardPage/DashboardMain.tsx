@@ -13,13 +13,16 @@ export function DashboardMain() {
 
     return (
         <div className="container">
-            {isChartVisible ? null : (
-                <DashboardWelcome />
-            )}
-            {isChartVisible && <DashboardChart />}
-            <DashboardActions onToggleChart={toggleChart} />
-            {/* <DashboardTable /> Временно отключено. Остается доделать функционал 
-          скрытия/показа таблицы по нажатию на кнопку. */}
+            <div className="dashboard-transition-wrapper">
+                <DashboardWelcome
+                    onToggleChart={toggleChart}
+                    isVisible={!isChartVisible}
+                />
+                <DashboardChart
+                    isVisible={isChartVisible}
+                />
+                <DashboardActions onToggleChart={toggleChart} />
+            </div>
         </div>
     );
 }
