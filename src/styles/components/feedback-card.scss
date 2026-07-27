@@ -39,11 +39,30 @@
     }
 
     &__success {
-        @apply fixed top-[50px] left-[50px] w-[300px] h-[100px] bg-green-800 text-white p-[16px] rounded-[16px] opacity-0;
+        background-color: $color-red;
+        @apply fixed top-[20px] left-[20px] w-[339px] h-[78px] text-white p-[5px] rounded-[10px] opacity-0 z-50;
 
         &--active {
             animation: appearance $transition-animation forwards, disappearance $transition-animation forwards 5s
         }
+    }
+
+    &__success-wrapper {
+        @apply w-full h-full flex px-[35px] py-[17px] justify-between items-center rounded-[10px];
+        border: 1px solid $color-gray-light;
+        font-family: Tektur;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+        letter-spacing: 0%;
+    }
+
+    &__tick {
+        @apply w-[35px] h-[35px] flex items-center justify-center bg-black-custom rounded-[50%]
+    }
+
+    &__tick-icon {
+        color: $color-screamin-green
     }
 }
 
