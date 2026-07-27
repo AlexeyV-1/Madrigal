@@ -40,12 +40,6 @@ textarea {
         margin-bottom: 17px;
     }
 
-    &__inner {
-        position: absolute;
-        top: calc(50% - 40px);
-        width: calc(100% - 32px);
-    }
-
     &__question {
         font-family: $ff-tektur;
         margin: 0 0 15px;
@@ -79,7 +73,7 @@ textarea {
     &__actions {
         position: absolute;
         bottom: 19px;
-        width: calc(100% - 32px);
+        width: 100%;
         &-group {
             display: flex;
             flex-direction: column;
