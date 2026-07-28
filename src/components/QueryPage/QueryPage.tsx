@@ -1,4 +1,4 @@
-import { Header } from "@/components/Common/header"
+import { Header } from "@/components/Common/Header"
 import { QueryMain } from "./QueryMain"
 
 export default function QueryPage() {

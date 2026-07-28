@@ -1,4 +1,4 @@
-import { Header } from "@/components/Common/header";
+import { Header } from "@/components/Common/Header";
 import { LandingMain } from "./LandingMain";
 
 export default function LandingPage() {

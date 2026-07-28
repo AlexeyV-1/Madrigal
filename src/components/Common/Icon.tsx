@@ -6,7 +6,7 @@ interface IconProps {
 
     // Dashboard Icon
     'faq' | 'add' | 'attachment' | 'microphone' | 'recording' | 'send' | 'cross' |
-    'checked' | 'delete' |
+    'checked' | 'delete' | 'sent-tick' |
 
     // QueryPage 
     'download' | 'copy-1' | 'copy-2'
@@ -189,6 +189,12 @@ export const Icon: FC<IconProps & React.SVGProps<SVGSVGElement>> = ({ role, clas
             return (
                 <svg className={className} width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 7V18.993C18.0009 19.1243 17.976 19.2545 17.9266 19.3762C17.8772 19.4979 17.8043 19.6087 17.7121 19.7022C17.6199 19.7957 17.5101 19.8701 17.3892 19.9212C17.2682 19.9723 17.1383 19.9991 17.007 20H0.993C0.729813 20 0.477391 19.8955 0.291196 19.7095C0.105001 19.5235 0.000265042 19.2712 0 19.008V0.992C0 0.455 0.447 0 0.998 0H11V6C11 6.26522 11.1054 6.51957 11.2929 6.70711C11.4804 6.89464 11.7348 7 12 7H18ZM18 5H13V0.00300002L18 5Z" fill="#E0E0E0" />
+                </svg>
+            )
+        case 'sent-tick':
+            return (
+                <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.0002 15.17L19.1922 5.979L20.6062 7.393L10.0002 17.999L3.63623 11.635L5.05023 10.221L10.0002 15.17Z" fill="currentColor" />
                 </svg>
             )
     }
