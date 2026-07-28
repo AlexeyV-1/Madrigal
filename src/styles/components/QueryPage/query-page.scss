@@ -36,6 +36,13 @@
         cursor: pointer;
     }
 
+    &__notes-title {
+        color: $color-white;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
     &__list {
         color: $color-white;
         font-weight: 700;
@@ -146,5 +153,25 @@
         font-size: 8px;
         line-height: 130%;
         color: $color-red;
+    }
+
+    &__block {
+        opacity: 0;
+        transform: translateY(12px);
+        animation-name: fadeInUpStep;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes fadeInUpStep {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
