@@ -1,34 +1,72 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Choices from 'choices.js';
+import "choices.js/public/assets/styles/choices.css";
 
 interface SelectorProps {
     onParamsChange?: (params: { period: string; count: string; region: string }) => void;
 }
 
 export default function Selector({ onParamsChange }: SelectorProps) {
-    const [period, setPeriod] = useState('');
-    const [count, setCount] = useState('');
-    const [region, setRegion] = useState('');
+    const [period, setPeriod] = useState('Период');
+    const [count, setCount] = useState('Цена');
+    const [region, setRegion] = useState('Регион');
 
-    const handleChange = () => {
+    const periodRef = useRef<HTMLSelectElement | null>(null);
+    const countRef = useRef<HTMLSelectElement | null>(null);
+    const regionRef = useRef<HTMLSelectElement | null>(null);
+
+    useEffect(() => {
+        const initChoices = (
+            ref: React.RefObject<HTMLSelectElement | null>,
+            setValue: (v: string) => void
+        ) => {
+            const element = ref.current;
+            if (!element) return;
+
+            const choices = new Choices(element, {
+                silent: false,
+                removeItemButton: false,
+                searchEnabled: false,
+                placeholderValue: '',
+                allowHTML: false,
+            });
+
+            const handleChange = () => {
+                setValue(element.value);
+            };
+
+            element.addEventListener('change', handleChange);
+
+            return () => {
+                element.removeEventListener('change', handleChange);
+                choices.destroy();
+            };
+        };
+
+        const cleanupPeriod = initChoices(periodRef, setPeriod);
+        const cleanupCount = initChoices(countRef, setCount);
+        const cleanupRegion = initChoices(regionRef, setRegion);
+
+        return () => {
+            cleanupPeriod?.();
+            cleanupCount?.();
+            cleanupRegion?.();
+        };
+    }, []);
+
+    useEffect(() => {
         if (onParamsChange) {
             onParamsChange({ period, count, region });
         }
-    };
+    }, [period, count, region, onParamsChange]);
 
     return (
         <div className='filter__wrapper'>
             <div className="filter__group">
-                <select
-                    className='filter__element'
-                    value={period}
-                    onChange={(e) => {
-                        setPeriod(e.target.value);
-                        handleChange();
-                    }}
-                >
-                    <option value="" disabled>Период</option>
+                <select ref={periodRef} className='filter__element'>
+                    <option value="period">Период</option>
                     <option value="all">Все</option>
                     <option value="2020">2020</option>
                     <option value="2021">2021</option>
@@ -38,18 +76,11 @@ export default function Selector({ onParamsChange }: SelectorProps) {
                     <option value="2025">2025</option>
                     <option value="2026">2026</option>
                 </select>
-                <br /><br />
             </div>
+
             <div className="filter">
-                <select
-                    className='filter__element'
-                    value={count}
-                    onChange={(e) => {
-                        setCount(e.target.value);
-                        handleChange();
-                    }}
-                >
-                    <option value="" disabled>Сумма</option>
+                <select ref={countRef} className='filter__element'>
+                    <option value="count">Сумма</option>
                     <option value="all">Все</option>
                     <option value="1m">От 1 млн</option>
                     <option value="5m">От 5 млн</option>
@@ -57,18 +88,11 @@ export default function Selector({ onParamsChange }: SelectorProps) {
                     <option value="15m">От 15 млн</option>
                     <option value="20m">От 20 млн</option>
                 </select>
-                <br /><br />
             </div>
+
             <div className="filter">
-                <select
-                    className='filter__element'
-                    value={region}
-                    onChange={(e) => {
-                        setRegion(e.target.value);
-                        handleChange();
-                    }}
-                >
-                    <option value="" disabled>Регион</option>
+                <select ref={regionRef} className='filter__element'>
+                    <option value="region">Регион</option>
                     <option value="all">Все</option>
                     <option value="center">Центральный</option>
                     <option value="northwestern">Северо‑Западный</option>
