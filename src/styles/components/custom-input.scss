@@ -3,7 +3,7 @@
 
     &__field {
         transition: border-color $transition;
-        border-color: $color-dark-gray;
+        border-color: $color-gray-dark;
         font-family: $ff-montserrat;
         @apply w-full border-[1px] outline-none px-[13px] py-[16px] rounded-[10px] text-white;
 
@@ -51,7 +51,7 @@
         }
 
         &::placeholder {
-            color: $color-dark-gray;
+            color: $color-gray-dark;
         }
 
         &:-webkit-autofill,
@@ -121,7 +121,7 @@
 
     &__icon {
         transition: color $transition, transform $transition;
-        color: $color-dark-gray;
+        color: $color-gray-dark;
     }
 
     &--password {

@@ -3,7 +3,6 @@ import WelcomeBtn from "./WelcomeBtn"
 
 export default function DashboardTable() {
     return (
-
         <section className="table">
             <div className="table__panel">
                 <h2 className="table__title">Создание таблицы</h2>
@@ -14,9 +13,7 @@ export default function DashboardTable() {
                 >
                     <Icon className="table__close-icon" role="cross" />
                 </button>
-
                 <form className="table__settings">
-
                     <div className="table__row">
                         <label className="table__label" htmlFor="columns">Колонки</label>
                         <input
@@ -26,7 +23,6 @@ export default function DashboardTable() {
                             className="table__input"
                         />
                     </div>
-
                     <div className="table__row">
                         <label className="table__label" htmlFor="rows">Строки</label>
                         <input
@@ -36,9 +32,7 @@ export default function DashboardTable() {
                             className="table__input"
                         />
                     </div>
-
                 </form>
-
                 <button className="table__action-btn" type="button">
                     Создать таблицу
                 </button>
