@@ -3,9 +3,10 @@ import { SearchBar } from '../DashboardPage/SearchBar';
 
 interface DashboardActionsProps {
     onToggleChart: () => void;
+    onTogglePageAnimation: () => void;
 }
 
-export default function DashboardActions({ onToggleChart }: DashboardActionsProps) {
+export default function DashboardActions({ onToggleChart, onTogglePageAnimation }: DashboardActionsProps) {
     return (
         <div className="welcome__actions">
             <div className="welcome__actions-group">
@@ -26,7 +27,7 @@ export default function DashboardActions({ onToggleChart }: DashboardActionsProp
                     <Icon className="welcome__attachment-icon welcome__icon" role="attachment" />
                 </button>
             </div>
-            <SearchBar />
+            <SearchBar onTogglePageAnimation={onTogglePageAnimation}/>
         </div>
     );
 }

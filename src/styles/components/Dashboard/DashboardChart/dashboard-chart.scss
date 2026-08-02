@@ -34,8 +34,23 @@
 
 .dashboard-transition-wrapper {
     position: relative;
-    overflow: hidden;
-    min-height: 844px;
+    height: calc(100vh - 85px);
+
+    &::before {
+        width: 100vw;
+        height: 100vh;
+        content: '';
+        position: absolute;
+        background-color: $color-black;
+        left: -16px;
+        top: -85px;
+        z-index: 10;
+        transform: translateX(100%);
+    }
+
+    &--animated::before {
+        animation: page-switch $transition-page forwards;
+    }
 }
 
 .dashboard-animatable {
@@ -53,4 +68,13 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+@keyframes page-switch {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }

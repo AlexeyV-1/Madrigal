@@ -8,12 +8,14 @@ import DashboardChart from '../Common/DashboardPage/DashboardChart/DashboardChar
 
 export function DashboardMain() {
     const [isChartVisible, setIsChartVisible] = useState(false);
+    const [animated, setAnimated] = useState(false);
 
     const toggleChart = () => setIsChartVisible((prev) => !prev);
+    const toggleAnimation = () => setAnimated((prev) => !prev);
 
     return (
         <div className="container">
-            <div className="dashboard-transition-wrapper">
+            <div className={animated ? "dashboard-transition-wrapper dashboard-transition-wrapper--animated" : "dashboard-transition-wrapper"}>
                 <DashboardWelcome
                     onToggleChart={toggleChart}
                     isVisible={!isChartVisible}
@@ -21,7 +23,10 @@ export function DashboardMain() {
                 <DashboardChart
                     isVisible={isChartVisible}
                 />
-                <DashboardActions onToggleChart={toggleChart} />
+                <DashboardActions 
+                    onToggleChart={toggleChart} 
+                    onTogglePageAnimation={toggleAnimation}
+                />
             </div>
         </div>
     );

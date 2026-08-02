@@ -5,7 +5,11 @@ import { Icon } from '../Common/Icon';
 import { CustomInput } from '../Common/CustomInput';
 import { useRouter } from "next/navigation";
 
-export function SearchBar() {
+interface SearchBarProps {
+  onTogglePageAnimation: () => void;
+}
+
+export function SearchBar({ onTogglePageAnimation }: SearchBarProps) {
   const [query, setQuery] = useState('');
   // const [isVoiceActive, setIsVoiceActive] = useState(false);
   const router = useRouter()
@@ -18,7 +22,10 @@ export function SearchBar() {
 
   const handleSubmit = (query: string) => {
     if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит') {
-      router.push('/querypage')
+      onTogglePageAnimation()
+      setTimeout(() => {
+        router.push('/querypage')
+      }, 1000)
     }
   }
 
