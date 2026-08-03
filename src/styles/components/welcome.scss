@@ -73,6 +73,7 @@ textarea {
         position: absolute;
         bottom: 20px;
         width: 100%;
+
         &-group {
             display: flex;
             flex-direction: column;
@@ -100,7 +101,7 @@ textarea {
             width: 100%;
         }
 
-        &--send, 
+        &--send,
         &--microphone {
             display: flex;
             justify-content: center;
@@ -110,7 +111,7 @@ textarea {
         &-icon,
         &-icon--send {
             position: absolute;
-            top: 50%;
+            top: 49%;
             transform: translateY(-50%);
             right: 10px;
             cursor: pointer;
@@ -118,11 +119,44 @@ textarea {
     }
 
     &__search-voice {
-        background-color: aqua;
-        width: 20px;
-        height: 20px;
+        background-color: $color-red;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 14px;
         position: absolute;
-        top: 0;
+        top: 50%;
+        overflow: hidden;
+        transform: translateY(-50%);
+    }
+
+    &__search-voice-icon-eq-bar {
+        transform-box: fill-box; // ключевое свойство — привязывает transform-origin к геометрии самого rect, а не всего SVG-полотна
+        transform-origin: bottom;
+        animation: eq-pulse 1s ease-in-out infinite;
+
+        &--1 {
+            animation-duration: 0.8s;
+            animation-delay: 0s;
+        }
+
+        &--2 {
+            animation-duration: 0.65s;
+            animation-delay: 0.15s;
+        }
+
+        &--3 {
+            animation-duration: 0.9s;
+            animation-delay: 0.05s;
+        }
+
+        &--4 {
+            animation-duration: 0.7s;
+            animation-delay: 0.25s;
+        }
     }
 
     &__search-stop {
@@ -143,5 +177,17 @@ textarea {
         width: 5px;
         height: 5px;
         background-color: $color-black;
+    }
+}
+
+@keyframes eq-pulse {
+
+    0%,
+    100% {
+        transform: scaleY(0.35);
+    }
+
+    50% {
+        transform: scaleY(1);
     }
 }

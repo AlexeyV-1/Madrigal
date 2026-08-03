@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Icon } from '../Common/Icon';
 import { CustomInput } from '../Common/CustomInput';
 import { useRouter } from "next/navigation";
+import { usePathname } from 'next/navigation'
 
 interface SearchBarProps {
   onTogglePageAnimation?: () => void;
@@ -14,24 +15,29 @@ export function SearchBar({ onTogglePageAnimation, isChart }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isVoiceActive, setIsVoiceActive] = useState(false);
   const router = useRouter()
+  const pathname = usePathname()
 
-  const handleVoice = () => setIsVoiceActive((prev) => !prev);
+  const handleVoice = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setIsVoiceActive((prev) => !prev);
+  }
 
   const hasText = query.trim().length > 0
 
-  const handleSubmit = (query: string) => {
-    if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит' && isChart) {
-      onTogglePageAnimation?.()
-      setTimeout(() => {
-        router.push('/querypage')
-      }, 1000)
-    } else {
-      onTogglePageAnimation?.()
-      setTimeout(() => {
-        router.push('/failquerypage')
-      }, 1000)
-    }
+const handleSubmit = (query: string) => {
+  if (query === 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит' && isChart) {
+    if (pathname === '/querypage') return
+    onTogglePageAnimation?.()
+    setTimeout(() => {
+      router.push('/querypage')
+    }, 1000)
+  } else {
+    onTogglePageAnimation?.()
+    setTimeout(() => {
+      router.push('/failquerypage')
+    }, 1000)
   }
+}
 
   return (
     <form className="welcome__search-btn" onSubmit={(e) => {
@@ -40,20 +46,21 @@ export function SearchBar({ onTogglePageAnimation, isChart }: SearchBarProps) {
     }}>
       <CustomInput
         inputType="text"
-        placeholder="Задайте вопрос"
+        placeholder={isVoiceActive ? '' : "Задайте вопрос"}
         inputValue={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter'}
         // disabled={isVoiceActive}
         id="query"
         required={false}
+        isVoice={isVoiceActive}
       />
       {isVoiceActive && (
         <>
           <div 
             className="welcome__search-voice"
           >
-            A
+            <Icon role='volume' className='welcome__search-voice-icon' />
           </div>
           <button   
             className="welcome__search-stop"
@@ -79,7 +86,6 @@ export function SearchBar({ onTogglePageAnimation, isChart }: SearchBarProps) {
         <button 
           className="welcome__search--send"
           type="submit"
-          
         >
           <Icon
             className="welcome__search-icon--send"

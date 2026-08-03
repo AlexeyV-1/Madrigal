@@ -218,6 +218,12 @@
             @apply absolute top-[50%] left-[50%] pointer-events-none opacity-0 text-white
         }
     }
+
+    &--voice {
+        .custom-input__field {
+            padding: 14px 65px 14px 50px;
+        }
+}
 }
 
 @keyframes appearance {

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { Icon } from '../Common/Icon';
 import { SearchBar } from '../DashboardPage/SearchBar';
 import { DelayedBlock } from './DelayedBlock';
-
+import { useState } from 'react';
 import CopyBtn from './CopyBtn';
 import { YearsRanges } from './YearsRanges';
 import { StatisticsNotes } from './StatisticsNotes';
@@ -27,6 +27,16 @@ interface QueryStatisticsProps {
 }
 
 export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart, animationPage }: QueryStatisticsProps) {
+   const [hasFile, setHasFile] = useState(false)
+
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const selectedFiles = e.target.files
+  if (!selectedFiles || selectedFiles.length === 0) {
+    return
+  }
+  setHasFile(true)
+}
+
     return (
         <section className="statistics">
             <DelayedBlock delayMs={0}>
@@ -93,8 +103,11 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
             </DelayedBlock>
 
             <DelayedBlock delayMs={1665}>
-                <CopyBtn />
-                <SearchBar onTogglePageAnimation={animationPage}/>
+                <CopyBtn handleFileChange={(e) => handleFileChange(e)}/>
+                <SearchBar 
+                    onTogglePageAnimation={animationPage}
+                    isChart={hasFile}
+                />
             </DelayedBlock>
         </section>
     );

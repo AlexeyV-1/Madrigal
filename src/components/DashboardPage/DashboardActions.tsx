@@ -18,6 +18,7 @@ export default function DashboardActions({ onToggleChart, onTogglePageAnimation,
     return (
         <div className="welcome__actions">
             <div className="welcome__actions-group">
+                { /*
                 <button
                     className="welcome__add-btn"
                     type="button"
@@ -26,6 +27,7 @@ export default function DashboardActions({ onToggleChart, onTogglePageAnimation,
                 >
                     <Icon className="welcome__add-icon welcome__icon" role="add" />
                 </button>
+                */ }
                 <>
                     <input
                         id="attachment-files"

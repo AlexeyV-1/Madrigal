@@ -1,5 +1,4 @@
 import { Icon } from "../Common/Icon"
-import { ExitButton } from "../Common/ExitButton"
 import WelcomeBtn from "./WelcomeBtn"
 
 interface DashboardWelcomeProps {
@@ -30,13 +29,13 @@ export default function DashboardWelcome({
 
                 <div className="welcome__container">
                     <div className="welcome__inner">
-                        <ExitButton
+                        <button
                             className="welcome__action-btn btn"
-                            href="#"
-                            noBaseStyle={true}
+                            type="button"
+                            onClick={() => alert("Данная функция будет реализована позже!")}
                         >
                             Загрузить данные
-                        </ExitButton>
+                        </button>
 
                         <p className="welcome__question">или задать вопрос</p>
 
