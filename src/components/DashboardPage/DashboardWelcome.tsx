@@ -1,15 +1,12 @@
 import { Icon } from "../Common/Icon"
 import { ExitButton } from "../Common/ExitButton"
-import { SearchBar } from "./SearchBar"
 import WelcomeBtn from "./WelcomeBtn"
 
 interface DashboardWelcomeProps {
-    onToggleChart: () => void;
     isVisible: boolean;
 }
 
 export default function DashboardWelcome({
-    onToggleChart,
     isVisible,
 }: DashboardWelcomeProps) {
     const containerClass = `dashboard-animatable ${isVisible ? 'is-visible' : ''}`;
@@ -20,7 +17,7 @@ export default function DashboardWelcome({
                 <button
                     className="welcome__faq-btn"
                     type="button"
-                    onClick={onToggleChart}
+                    onClick={() => alert("Данная функция будет реализована позже!")}
                 >
                     <Icon
                         className="welcome__faq-icon welcome__icon"

@@ -10,22 +10,24 @@ export function DashboardMain() {
     const [isChartVisible, setIsChartVisible] = useState(false);
     const [animated, setAnimated] = useState(false);
 
-    const toggleChart = () => setIsChartVisible((prev) => !prev);
+    const toggleChartTrue = () => setIsChartVisible(true);
+    const toggleChartFalse = () => setIsChartVisible(false);
     const toggleAnimation = () => setAnimated((prev) => !prev);
 
     return (
         <div className="container">
             <div className={animated ? "dashboard-transition-wrapper dashboard-transition-wrapper--animated" : "dashboard-transition-wrapper"}>
                 <DashboardWelcome
-                    onToggleChart={toggleChart}
                     isVisible={!isChartVisible}
                 />
                 <DashboardChart
                     isVisible={isChartVisible}
+                    deleteFileFn={toggleChartFalse}
                 />
                 <DashboardActions 
-                    onToggleChart={toggleChart} 
+                    onToggleChart={toggleChartTrue} 
                     onTogglePageAnimation={toggleAnimation}
+                    isChart={isChartVisible}
                 />
             </div>
         </div>

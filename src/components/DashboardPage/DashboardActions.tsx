@@ -4,9 +4,17 @@ import { SearchBar } from '../DashboardPage/SearchBar';
 interface DashboardActionsProps {
     onToggleChart: () => void;
     onTogglePageAnimation: () => void;
+    isChart: boolean
 }
 
-export default function DashboardActions({ onToggleChart, onTogglePageAnimation }: DashboardActionsProps) {
+export default function DashboardActions({ onToggleChart, onTogglePageAnimation, isChart }: DashboardActionsProps) {
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files
+        if (!files || files.length === 0) return
+
+        onToggleChart()
+    }
+
     return (
         <div className="welcome__actions">
             <div className="welcome__actions-group">
@@ -14,20 +22,27 @@ export default function DashboardActions({ onToggleChart, onTogglePageAnimation 
                     className="welcome__add-btn"
                     type="button"
                     aria-label="Добавить"
+                    onClick={() => alert('Данная функция будет реализована позже!')}
                 >
                     <Icon className="welcome__add-icon welcome__icon" role="add" />
                 </button>
-
-                <button
-                    className="welcome__attachment-btn"
-                    type="button"
-                    aria-label="Показать/скрыть график"
-                    onClick={onToggleChart}
-                >
-                    <Icon className="welcome__attachment-icon welcome__icon" role="attachment" />
-                </button>
+                <>
+                    <input
+                        id="attachment-files"
+                        className="welcome__attachment-files"
+                        type="file"
+                        hidden
+                        onChange={handleFileChange}
+                    />
+                    <label htmlFor="attachment-files" className="welcome__attachment-btn">
+                        <Icon className="welcome__attachment-icon welcome__icon" role="attachment" />
+                    </label>
+                </>
             </div>
-            <SearchBar onTogglePageAnimation={onTogglePageAnimation}/>
+            <SearchBar 
+                onTogglePageAnimation={onTogglePageAnimation}
+                isChart={isChart}
+            />
         </div>
     );
 }

@@ -13,6 +13,7 @@ export default function QueryPage() {
     const [loadingAnimationFinish, setLoadingAnimationFinish] = useState(false)
     const [loadingFinish, setLoadingFinish] = useState(false)
     const [monthlyChart, setMonthlyChart] = useState(false)
+    const [pageAnimation, setPageAnimation] = useState(false)
 
     const toggleAnimation = () => {
         setLoadingAnimation(true)
@@ -46,6 +47,7 @@ export default function QueryPage() {
             className={clsx('animation-wrapper', {
                 'animation-wrapper--loading': loadingAnimation,
                 'animation-wrapper--finished': loadingAnimationFinish,
+                'animation-wrapper--page-animated': pageAnimation,
             })}
         >
             <Header page="query" />
@@ -59,7 +61,7 @@ export default function QueryPage() {
                     })}
             />
             <main>
-                <QueryMain animationFn={toggleAnimation} monthlyChart={monthlyChart} />
+                <QueryMain animationFn={toggleAnimation} monthlyChart={monthlyChart} animationPageFn={() => setPageAnimation(true)} />
             </main>
         </div>
     )

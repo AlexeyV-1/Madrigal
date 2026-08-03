@@ -71,7 +71,7 @@ textarea {
 
     &__actions {
         position: absolute;
-        bottom: 19px;
+        bottom: 20px;
         width: 100%;
         &-group {
             display: flex;
@@ -115,5 +115,33 @@ textarea {
             right: 10px;
             cursor: pointer;
         }
+    }
+
+    &__search-voice {
+        background-color: aqua;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+    }
+
+    &__search-stop {
+        background-color: $color-white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 40px;
+    }
+
+    &__search-stop-square {
+        width: 5px;
+        height: 5px;
+        background-color: $color-black;
     }
 }

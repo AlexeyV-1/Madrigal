@@ -1,22 +1,32 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { Icon } from '../Common/Icon';
 import { SearchBar } from '../DashboardPage/SearchBar';
 import { DelayedBlock } from './DelayedBlock';
-import Selector from './Selector';
-import StatisticsList from './StatisticsList';
+
 import CopyBtn from './CopyBtn';
 import { YearsRanges } from './YearsRanges';
-import { RevenueChart } from './RevenueChart';
 import { StatisticsNotes } from './StatisticsNotes';
+
+const RevenueChart = dynamic(
+    () => import('./RevenueChart').then((mod) => mod.RevenueChart),
+    { ssr: false }
+);
+
+const Selector = dynamic(
+    () => import('./Selector'), 
+    { ssr: false }
+);
 
 interface QueryStatisticsProps {
     animationFn: () => void,
     monthlyChart: boolean,
-    setMonthlyChart?: () => void
+    setMonthlyChart?: () => void,
+    animationPage: () => void
 }
 
-export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart }: QueryStatisticsProps) {
+export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart, animationPage }: QueryStatisticsProps) {
     return (
         <section className="statistics">
             <DelayedBlock delayMs={0}>
@@ -84,7 +94,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
 
             <DelayedBlock delayMs={1665}>
                 <CopyBtn />
-                <SearchBar />
+                <SearchBar onTogglePageAnimation={animationPage}/>
             </DelayedBlock>
         </section>
     );

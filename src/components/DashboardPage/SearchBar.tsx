@@ -7,24 +7,28 @@ import { useRouter } from "next/navigation";
 
 interface SearchBarProps {
   onTogglePageAnimation?: () => void;
+  isChart?: boolean
 }
 
-export function SearchBar({ onTogglePageAnimation }: SearchBarProps) {
+export function SearchBar({ onTogglePageAnimation, isChart }: SearchBarProps) {
   const [query, setQuery] = useState('');
-  // const [isVoiceActive, setIsVoiceActive] = useState(false);
+  const [isVoiceActive, setIsVoiceActive] = useState(false);
   const router = useRouter()
 
-  // const handleVoice = () => {
-  //   setIsVoiceActive((prev) => !prev);
-  // };
+  const handleVoice = () => setIsVoiceActive((prev) => !prev);
 
   const hasText = query.trim().length > 0
 
   const handleSubmit = (query: string) => {
-    if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит') {
+    if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит' && isChart) {
       onTogglePageAnimation?.()
       setTimeout(() => {
         router.push('/querypage')
+      }, 1000)
+    } else {
+      onTogglePageAnimation?.()
+      setTimeout(() => {
+        router.push('/failquerypage')
       }, 1000)
     }
   }
@@ -44,23 +48,55 @@ export function SearchBar({ onTogglePageAnimation }: SearchBarProps) {
         id="query"
         required={false}
       />
-      {!hasText && (
-        <button className="welcome__search--microphone"
-        type='button'>
-          <Icon
-            className="welcome__search-icon"
-            role="microphone"
-            aria-label="Голосовой ввод"
-          />
-        </button>
+      {isVoiceActive && (
+        <>
+          <div 
+            className="welcome__search-voice"
+          >
+            A
+          </div>
+          <button   
+            className="welcome__search-stop"
+            onClick={handleVoice}
+          >
+            <span className="welcome__search-stop-square"></span>
+          </button>
+        </>
       )}
-      {hasText && (
-        <button className="welcome__search--send"
-        type='submit'>
+      {hasText ? (
+        <button 
+          className="welcome__search--send" 
+          type="submit"
+          
+        >
           <Icon
             className="welcome__search-icon--send"
             role="send"
             aria-label="Отправить запрос"
+          />
+        </button>
+      ) : isVoiceActive ? (
+        <button 
+          className="welcome__search--send"
+          type="submit"
+          
+        >
+          <Icon
+            className="welcome__search-icon--send"
+            role="send"
+            aria-label="Отправить запрос"
+          />
+        </button>
+      ) : (
+        <button
+          className="welcome__search--microphone"
+          type="button"
+          onClick={handleVoice}
+        >
+          <Icon
+            className="welcome__search-icon"
+            role="microphone"
+            aria-label="Голосовой ввод"
           />
         </button>
       )}

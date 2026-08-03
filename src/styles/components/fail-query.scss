@@ -1,0 +1,38 @@
+.fail-query {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    height: calc(100vh - 85px);
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__icon {
+        color: $color-red;
+    }
+
+    &__title {
+        font-family: $ff-tektur;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: $color-orange
+    }
+
+    &__text {
+        font-family: $ff-montserrat;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+        color: $color-white;
+    }
+}

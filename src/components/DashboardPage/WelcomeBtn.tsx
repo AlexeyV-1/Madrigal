@@ -10,6 +10,7 @@ export default function WelcomeBtn({
             className="welcome__item-btn"
             type="button"
             aria-label={text}
+            onClick={() => alert("Данная функция будет реализована позже!")}
         >
             {text}
         </button>

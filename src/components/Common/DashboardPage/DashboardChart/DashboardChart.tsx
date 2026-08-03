@@ -4,9 +4,10 @@ import { ImageAsset } from "../../Image";
 
 interface DashboardChartProps {
     isVisible: boolean;
+    deleteFileFn: () => void
 }
 
-export default function DashboardChart({ isVisible }: DashboardChartProps) {
+export default function DashboardChart({ isVisible, deleteFileFn }: DashboardChartProps) {
     const containerClass = `dashboard-animatable ${isVisible ? 'is-visible' : ''}`;
 
     return (
@@ -25,13 +26,16 @@ export default function DashboardChart({ isVisible }: DashboardChartProps) {
                         height={193}
                         className="chart__group-img"
                     />
-                    <div className="chart__group-wrapper">
+                    <button 
+                        className="chart__group-wrapper"
+                        onClick={deleteFileFn}
+                    >
                         <Icon
                             className="chart__group-icon"
                             role="delete"
                             aria-label="Удалить изображение"
                         />
-                    </div>
+                    </button>
                 </div>
                 <div className="welcome__quick-list">
                     <WelcomeBtn text="Построить динамику сумм по месяцам" />
