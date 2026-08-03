@@ -23,6 +23,11 @@
         margin-bottom: 20px;
     }
 
+    &__btn-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
     &__download-btn {
         background-color: $color-black-hover;
         color: $color-white;
@@ -34,6 +39,20 @@
         font-size: 12px;
         line-height: 130%;
         margin: 0 0 20px auto;
+        cursor: pointer;
+    }
+
+    &__stat-btn {
+        background-color: $color-orange;
+        color: $color-white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        padding: 5px 10px;
+        width: 166px;
+        font-size: 12px;
+        line-height: 130%;
+        margin: 0 auto 20px 0;
         cursor: pointer;
     }
 

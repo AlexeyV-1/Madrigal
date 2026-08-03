@@ -3,12 +3,38 @@
     @apply opacity-0;
 
     animation: appearance $transition-page forwards;
+
+    &:has(.statistics) {
+    &::before {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        content: '';
+        background-color: $color-black;
+        opacity: 0;
+        z-index: 20;
+        transform: translateY(-100%);
+    }
+}
+
+&--loading:has(.statistics)::before {
+    transform: translateY(0);
+    opacity: 0.5;
+    transition: opacity $transition-page, transform 0s; // transform мгновенно в начале, opacity плавно следом
+}
+
+&--finished:has(.statistics)::before {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: opacity $transition-page, transform 0s $transition-page; // opacity плавно, transform мгновенно в конце
+}
 }
 
 @keyframes appearance {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

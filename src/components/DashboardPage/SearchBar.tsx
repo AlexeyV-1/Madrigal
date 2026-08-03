@@ -6,7 +6,7 @@ import { CustomInput } from '../Common/CustomInput';
 import { useRouter } from "next/navigation";
 
 interface SearchBarProps {
-  onTogglePageAnimation: () => void;
+  onTogglePageAnimation?: () => void;
 }
 
 export function SearchBar({ onTogglePageAnimation }: SearchBarProps) {
@@ -22,7 +22,7 @@ export function SearchBar({ onTogglePageAnimation }: SearchBarProps) {
 
   const handleSubmit = (query: string) => {
     if (query == 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит') {
-      onTogglePageAnimation()
+      onTogglePageAnimation?.()
       setTimeout(() => {
         router.push('/querypage')
       }, 1000)

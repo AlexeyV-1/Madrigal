@@ -1,0 +1,17 @@
+.revenue-chart {
+  background: #0d0d0d;
+  border-radius: 12px;
+  padding: 0;
+  color: #fff;
+  font-family: $ff-montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  margin-bottom: 10px;
+
+  &__label {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+}

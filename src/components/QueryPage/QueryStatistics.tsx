@@ -1,20 +1,22 @@
 'use client';
 
-import { useState } from 'react';
 import { Icon } from '../Common/Icon';
 import { SearchBar } from '../DashboardPage/SearchBar';
-import { CustomRange } from './Range';
 import { DelayedBlock } from './DelayedBlock';
 import Selector from './Selector';
 import StatisticsList from './StatisticsList';
 import CopyBtn from './CopyBtn';
-import RangeYear from './RangeYears';
-import RangeProcent from './RangeProcent';
+import { YearsRanges } from './YearsRanges';
+import { RevenueChart } from './RevenueChart';
+import { StatisticsNotes } from './StatisticsNotes';
 
+interface QueryStatisticsProps {
+    animationFn: () => void,
+    monthlyChart: boolean,
+    setMonthlyChart?: () => void
+}
 
-export default function QueryStatistics() {
-    const [sliderValue, setSliderValue] = useState<number>(50);
-
+export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart }: QueryStatisticsProps) {
     return (
         <section className="statistics">
             <DelayedBlock delayMs={0}>
@@ -30,52 +32,57 @@ export default function QueryStatistics() {
             </DelayedBlock>
 
             <DelayedBlock delayMs={333}>
-                <h3 className="statistics__title">Статистика</h3>
+                {monthlyChart ?
+                    <RevenueChart
+                        data={[
+                            { month: '01', value: 70 },
+                            { month: '02', value: 92 },
+                            { month: '03', value: 130 },
+                            { month: '04', value: 80 },
+                            { month: '05', value: 92 },
+                            { month: '06', value: 160 },
+                            { month: '07', value: 192 },
+                            { month: '08', value: 211 },
+                            { month: '09', value: 320 },
+                            { month: '10', value: 288 },
+                            { month: '11', value: 313 },
+                            { month: '12', value: 360 },
+                        ]}
+                    /> : <YearsRanges />
+                }
             </DelayedBlock>
 
             <DelayedBlock delayMs={666}>
-                <div className="statistics__range-wrapper">
-                    <CustomRange value={45} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={61} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={46} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={26} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={50} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={80} min={0} max={100} onChange={setSliderValue} />
-                    <CustomRange value={90} min={0} max={100} onChange={setSliderValue} />
-                    <RangeProcent years={['45%', '61%', '46%', '26%', '50%', '89%', '95%']} />
-                    <RangeYear years={['2020', '2021', '2022', '2023', '2024', '2025', '2026']} />
+                <div className="statistics__btn-wrapper">
+                    {!monthlyChart &&
+                        <button
+                            className="statistics__stat-btn"
+                            onClick={animationFn}
+                        >
+                            Получить статистику
+                        </button>
+                    }
+                    <button className="statistics__download-btn">
+                        <Icon className="download-icon" role="download" />
+                        Скачать
+                    </button>
                 </div>
             </DelayedBlock>
 
             <DelayedBlock delayMs={999}>
-                <div className="statistics__download-btn">
-                    <Icon className="download-icon" role="download" />
-                    Скачать
-                </div>
+                <StatisticsNotes page={monthlyChart ? 'second' : 'first'} />
             </DelayedBlock>
 
             <DelayedBlock delayMs={1332}>
-                <h4 className="statistics__notes-title">Аналитическая записка по файлу «Реестр_Контрактов_2026»</h4>
-                <ul className="statistics__list">
-                    <StatisticsList
-                        text="Ключевой инсайт: Общая сумма контрактов за анализируемый период составила 1.2 млрд рублей. Пик расходов пришелся на март 2026 года."
-                    />
-                    <StatisticsList
-                        text="Концентрация рисков: На долю топ-3 поставщиков приходится 68% всех бюджетных средств. Главный исполнитель — АО «ТехноСтрой» (412 млн руб.)."
-                    />
-                    <StatisticsList
-                        text="Аномалия: Зафиксирован резкий рост мелких закупок у одного и того же поставщика в конце квартала (возможный признак дробления контрактов для обхода торгов)."
-                    />
-                </ul>
-            </DelayedBlock>
-
-            <DelayedBlock delayMs={1665}>
                 <div className="statistics__recommendation">
                     <h3 className="statistics__recommendation-title">Рекомендации</h3>
                     <p className="statistics__recommendation-text">
                         Рекомендуется провести дополнительный аудит договоров с ООО «Альфа» на предмет завышения рыночной стоимости.
                     </p>
                 </div>
+            </DelayedBlock>
+
+            <DelayedBlock delayMs={1665}>
                 <CopyBtn />
                 <SearchBar />
             </DelayedBlock>
