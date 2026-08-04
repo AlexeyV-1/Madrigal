@@ -21,6 +21,11 @@
     height: 100%;
     background-color: $color-red;
     z-index: 2;
+
+    &--active {
+        background-color: $color-red;
+        animation: color-change $transition-animation forwards;
+    }
 }
 
 .range-input {
@@ -41,4 +46,18 @@
     transform: translate(-50%, -50%);
     z-index: 4;
     border-radius: 0;
+
+    &--active {
+        background-color: $color-red;
+        animation: color-change $transition-animation forwards;
+    }
+}
+
+@keyframes color-change {
+    from {
+        background-color: $color-red;
+    }
+    to {
+        background-color: $color-orange;
+    }
 }
