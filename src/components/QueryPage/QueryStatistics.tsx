@@ -19,7 +19,7 @@ const Selector = dynamic(
     { ssr: false }
 );
 
-type Year = '' | '2020' | '2021' | '2022' | '2023' | '2024' | '2025' | '2026';
+export type Year = '' | '2020' | '2021' | '2022' | '2023' | '2024' | '2025' | '2026';
 
 const VALID_YEARS: Year[] = ['2020', '2021', '2022', '2023', '2024', '2025', '2026'];
 
@@ -35,20 +35,24 @@ interface QueryStatisticsProps {
 }
 
 export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart, animationPage }: QueryStatisticsProps) {
-   const [hasFile, setHasFile] = useState(false)
-   const [year, setYear] = useState<Year>('')
+    const [hasFile, setHasFile] = useState(false)
+    const [year, setYear] = useState<Year>('')
 
-   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-     const selectedFiles = e.target.files
-     if (!selectedFiles || selectedFiles.length === 0) {
-       return
-     }
-     setHasFile(true)
-   }
+    const handleYear = (year: Year) => {
+        setYear(year)
+    }
 
-   const handleSelectorChange = useCallback((params: { period: string; count: string; region: string }) => {
-       setYear(isYear(params.period) ? params.period : '');
-   }, []);
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedFiles = e.target.files
+        if (!selectedFiles || selectedFiles.length === 0) {
+            return
+        }
+        setHasFile(true)
+    }
+
+    const handleSelectorChange = useCallback((params: { period: string; count: string; region: string }) => {
+        setYear(isYear(params.period) ? params.period : '');
+    }, []);
 
     return (
         <section className="statistics">
@@ -56,7 +60,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                 <p className="statistics__text">
                     Сделай мне график по самым крупным поставщикам и распиши, что там происходит
                 </p>
-                <Selector  onParamsChange={handleSelectorChange}/>
+                <Selector onParamsChange={handleSelectorChange} />
             </DelayedBlock>
 
             <DelayedBlock delayMs={333}>
@@ -76,7 +80,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                             { month: '11', value: 313 },
                             { month: '12', value: 360 },
                         ]}
-                    /> : <YearsRanges year={year}/>
+                    /> : <YearsRanges year={year} yearFn={handleYear} />
                 }
             </DelayedBlock>
 
@@ -84,16 +88,20 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                 <div className="statistics__btn-wrapper">
                     {!monthlyChart &&
                         <button
-                            className={year!=='' ? "statistics__stat-btn statistics__stat-btn--active" : "statistics__stat-btn"}
+                            className={year !== '' ? "statistics__stat-btn statistics__stat-btn--active" : "statistics__stat-btn"}
                             onClick={animationFn}
                         >
                             Получить статистику
                         </button>
                     }
-                    <button className="statistics__download-btn">
+                    <a 
+                        className="statistics__download-btn"
+                        href="/IMG/Chart.png"
+                        download
+                    >
                         <Icon className="download-icon" role="download" />
                         Скачать
-                    </button>
+                    </a>
                 </div>
             </DelayedBlock>
 
@@ -111,8 +119,8 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
             </DelayedBlock>
 
             <DelayedBlock delayMs={1665}>
-                <CopyBtn handleFileChange={(e) => handleFileChange(e)}/>
-                <SearchBar 
+                <CopyBtn handleFileChange={(e) => handleFileChange(e)} />
+                <SearchBar
                     onTogglePageAnimation={animationPage}
                     isChart={hasFile}
                 />
