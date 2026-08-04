@@ -74,4 +74,8 @@
     .choices__list[aria-expanded] {
         border-color: #6D071F;
     }
+
+    .choices:last-child {
+    margin-bottom: 24px;
+}
 }

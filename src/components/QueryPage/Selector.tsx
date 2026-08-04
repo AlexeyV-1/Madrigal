@@ -30,7 +30,8 @@ export default function Selector({ onParamsChange }: SelectorProps) {
                 removeItemButton: false,
                 searchEnabled: false,
                 allowHTML: false,
-                placeholder: true
+                placeholder: true,
+                itemSelectText: ''
             });
 
             const handleChange = () => {

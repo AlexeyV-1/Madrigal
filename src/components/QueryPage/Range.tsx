@@ -5,7 +5,8 @@ interface RangeProps {
     min?: number;
     max?: number;
     onChange: (v: number) => void;
-    active: boolean
+    active: boolean;
+    changeYear: () => void
 }
 
 export const CustomRange = ({
@@ -13,12 +14,17 @@ export const CustomRange = ({
     min = 0,
     max = 100,
     onChange,
-    active
+    active, 
+    changeYear
 }: RangeProps) => {
     const percent = ((value - min) / (max - min)) * 100;
 
     return (
-        <div className="range-wrapper">
+        <button 
+            className="range-btn"
+            type="button"
+            onClick={changeYear}
+        >
             <div className="range-track-empty" />
             <div
                 className={active ? "range-track-fill range-track-fill--active" : "range-track-fill"}
@@ -34,6 +40,6 @@ export const CustomRange = ({
                 aria-label="Регулировка стоимости"
             />
             <div className={active ? "range-thumb range-thumb--active" : "range-thumb"} />
-        </div>
+        </button>
     );
 };
