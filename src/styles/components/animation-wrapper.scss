@@ -4,7 +4,16 @@
 
     animation: appearance $transition-page forwards;
 
-    &--finished:has(.statistics)::before {
+    &:has(.statistics) {
+    &::before {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        content: '';
+        background-color: $color-black;
+        opacity: 0;
+        z-index: 200;
+        display: none;
         transform: translateY(-100%);
     }
 
@@ -17,19 +26,29 @@
         opacity: 1;
         z-index: 200;
         top: 0;
+        display: none;
         transform: translateX(100%);
         transition: transform $transition-page;
     }
+}
 
-    &--finished:has(.statistics)::before {
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: opacity $transition-page, transform 0s $transition-page;
-    }
+&--loading:has(.statistics)::before {
+    transform: translateY(0);
+    opacity: 0.5;
+    display: block;
+    transition: opacity $transition-page, transform 0s; // transform мгновенно в начале, opacity плавно следом
+}
 
-    &--page-animated:has(.statistics)::after {
-        transform: translateX(0);
-    }
+&--finished:has(.statistics)::before {
+    transform: translateY(-100%);
+    opacity: 0;
+    display: block;
+    transition: opacity $transition-page, transform 0s $transition-page; // opacity плавно, transform мгновенно в конце
+}
+
+&--page-animated:has(.statistics)::after {
+    transform: translateX(0);
+}
 }
 
 @keyframes appearance {

@@ -16,8 +16,11 @@
             border-radius: 5px 0 0 5px;
             transition: border-color $transition;
             @apply content-[''] absolute h-[58px] w-[80%] left-[4px];
+        }
 
-            @include vp-desktop-wide {
+        @include vp-desktop-wide {
+            border-radius: 5px 5px 0 0;
+            &::before {
                 border-right-color: $color-red;
                 border-radius: 5px;
                 width: 98%;
