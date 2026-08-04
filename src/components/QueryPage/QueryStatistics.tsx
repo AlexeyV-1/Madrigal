@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { Icon } from '../Common/Icon';
 import { SearchBar } from '../DashboardPage/SearchBar';
 import { DelayedBlock } from './DelayedBlock';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import CopyBtn from './CopyBtn';
 import { YearsRanges } from './YearsRanges';
 import { StatisticsNotes } from './StatisticsNotes';
@@ -15,9 +15,17 @@ const RevenueChart = dynamic(
 );
 
 const Selector = dynamic(
-    () => import('./Selector'), 
+    () => import('./Selector'),
     { ssr: false }
 );
+
+type Year = '' | '2020' | '2021' | '2022' | '2023' | '2024' | '2025' | '2026';
+
+const VALID_YEARS: Year[] = ['2020', '2021', '2022', '2023', '2024', '2025', '2026'];
+
+function isYear(value: string): value is Year {
+    return (VALID_YEARS as string[]).includes(value);
+}
 
 interface QueryStatisticsProps {
     animationFn: () => void,
@@ -28,27 +36,27 @@ interface QueryStatisticsProps {
 
 export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyChart, animationPage }: QueryStatisticsProps) {
    const [hasFile, setHasFile] = useState(false)
+   const [year, setYear] = useState<Year>('')
 
-const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const selectedFiles = e.target.files
-  if (!selectedFiles || selectedFiles.length === 0) {
-    return
-  }
-  setHasFile(true)
-}
+   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const selectedFiles = e.target.files
+     if (!selectedFiles || selectedFiles.length === 0) {
+       return
+     }
+     setHasFile(true)
+   }
+
+   const handleSelectorChange = useCallback((params: { period: string; count: string; region: string }) => {
+       setYear(isYear(params.period) ? params.period : '');
+   }, []);
 
     return (
         <section className="statistics">
-            <DelayedBlock delayMs={0}>
+            <DelayedBlock delayMs={0} className="statistics__filter-block">
                 <p className="statistics__text">
                     Сделай мне график по самым крупным поставщикам и распиши, что там происходит
                 </p>
-                <div className="statistics__filter">
-                    <form>
-                        <Selector />
-                        <div className="statistics__analytics"></div>
-                    </form>
-                </div>
+                <Selector  onParamsChange={handleSelectorChange}/>
             </DelayedBlock>
 
             <DelayedBlock delayMs={333}>
@@ -68,7 +76,7 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                             { month: '11', value: 313 },
                             { month: '12', value: 360 },
                         ]}
-                    /> : <YearsRanges />
+                    /> : <YearsRanges year={year}/>
                 }
             </DelayedBlock>
 
@@ -76,7 +84,7 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                 <div className="statistics__btn-wrapper">
                     {!monthlyChart &&
                         <button
-                            className="statistics__stat-btn"
+                            className={year!=='' ? "statistics__stat-btn statistics__stat-btn--active" : "statistics__stat-btn"}
                             onClick={animationFn}
                         >
                             Получить статистику
