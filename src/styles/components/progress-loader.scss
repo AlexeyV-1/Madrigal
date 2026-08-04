@@ -6,8 +6,7 @@
   z-index: 300;
   top: 50%;
   left: 50%;
-  // transform: translate(-50%, -50%);
-  transform: translate(-50%, -125vh);
+  transform: translate(-50%, -130vh);
   transition: transform $transition-page;
  
   &__svg {
@@ -36,6 +35,6 @@
   }
 
   &--finished {
-    transform: translate(-50%, -125vh);
+    transform: translate(-50%, -130vh);
   }
 }
