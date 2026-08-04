@@ -29,8 +29,8 @@ export default function Selector({ onParamsChange }: SelectorProps) {
                 silent: false,
                 removeItemButton: false,
                 searchEnabled: false,
-                placeholderValue: '',
                 allowHTML: false,
+                placeholder: true
             });
 
             const handleChange = () => {
@@ -63,44 +63,36 @@ export default function Selector({ onParamsChange }: SelectorProps) {
     }, [period, count, region, onParamsChange]);
 
     return (
-        <div className='filter__wrapper'>
-            <div className="filter__group">
-                <select ref={periodRef} className='filter__element'>
-                    <option value="period">Период</option>
-                    <option value="all">Все</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                </select>
-            </div>
-
-            <div className="filter">
-                <select ref={countRef} className='filter__element'>
-                    <option value="count">Сумма</option>
-                    <option value="all">Все</option>
-                    <option value="1m">От 1 млн</option>
-                    <option value="5m">От 5 млн</option>
-                    <option value="10m">От 10 млн</option>
-                    <option value="15m">От 15 млн</option>
-                    <option value="20m">От 20 млн</option>
-                </select>
-            </div>
-
-            <div className="filter">
-                <select ref={regionRef} className='filter__element'>
-                    <option value="region">Регион</option>
-                    <option value="all">Все</option>
-                    <option value="center">Центральный</option>
-                    <option value="northwestern">Северо‑Западный</option>
-                    <option value="volga">Приволжский</option>
-                    <option value="southern">Южный</option>
-                    <option value="ural">Уральский</option>
-                </select>
-            </div>
+        <div className='statistics__filter'>
+            <select ref={periodRef} defaultValue="">
+                <option value="" disabled hidden>Период</option>
+                <option value="all">Все</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+            <select ref={countRef} defaultValue="">
+                <option value="" disabled hidden>Сумма</option>
+                <option value="all">Все</option>
+                <option value="1m">От 1 млн</option>
+                <option value="5m">От 5 млн</option>
+                <option value="10m">От 10 млн</option>
+                <option value="15m">От 15 млн</option>
+                <option value="20m">От 20 млн</option>
+            </select>
+            <select ref={regionRef} defaultValue="">
+                <option value="" disabled hidden>Регион</option>
+                <option value="all">Все</option>
+                <option value="center">Центральный</option>
+                <option value="northwestern">Северо‑Западный</option>
+                <option value="volga">Приволжский</option>
+                <option value="southern">Южный</option>
+                <option value="ural">Уральский</option>
+            </select>
         </div>
     );
 }
