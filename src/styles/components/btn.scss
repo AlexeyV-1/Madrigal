@@ -12,6 +12,14 @@
     outline: none;
     font-family: $ff-montserrat;
 
+    @include vp-desktop-wide {
+        font-size: 28px;
+        line-height: 120%;
+        padding: 18px 128px;
+        width: 579px;
+        height: 70px;
+    }
+
     &:hover {
         background-color: $color-red-light;
     }

@@ -15,6 +15,49 @@
         z-index: 200;
         transform: translateY(-100%);
     }
+        &::before {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            content: '';
+            background-color: $color-black;
+            opacity: 0;
+            z-index: 20;
+            transform: translateY(-100%);
+        }
+
+    &::after {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        content: '';
+        background-color: $color-black;
+        opacity: 1;
+        z-index: 20;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform $transition-page;
+    }
+}
+
+    &--loading:has(.statistics)::before {
+        transform: translateY(0);
+        opacity: 0.5;
+        transition: opacity $transition-page, transform 0s;
+      
+    &::before {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        content: '';
+        background-color: $color-black;
+        opacity: 0;
+        z-index: 200;
+    }
+
+    &--finished:has(.statistics)::before {
+        transform: translateY(-100%);
+    }
 
     &::after {
         width: 100vw;
@@ -28,23 +71,16 @@
         transform: translateX(100%);
         transition: transform $transition-page;
     }
-}
 
-&--loading:has(.statistics)::before {
-    transform: translateY(0);
-    opacity: 0.5;
-    transition: opacity $transition-page, transform 0s; // transform мгновенно в начале, opacity плавно следом
-}
+    &--finished:has(.statistics)::before {
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: opacity $transition-page, transform 0s $transition-page;
+    }
 
-&--finished:has(.statistics)::before {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: opacity $transition-page, transform 0s $transition-page; // opacity плавно, transform мгновенно в конце
-}
-
-&--page-animated:has(.statistics)::after {
-    transform: translateX(0);
-}
+    &--page-animated:has(.statistics)::after {
+        transform: translateX(0);
+    }
 }
 
 @keyframes appearance {

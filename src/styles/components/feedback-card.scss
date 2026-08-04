@@ -2,6 +2,11 @@
     background-color: $color-light-gray;
     @apply flex flex-col p-[19px] relative;
 
+
+    @include vp-desktop-wide {
+        max-width: 480px;
+    }
+
     &__title {
         font-weight: 500;
         font-size: 24px;
@@ -9,23 +14,49 @@
         margin: 0 auto 25px;
         text-align: center;
         font-family: $ff-tektur;
+
+        @include vp-desktop-wide {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 120%;
+            margin-bottom: 18px;
+        }
     }
 
     &__text {
         font-size: 16px;
         line-height: 20px;
         margin-bottom: 47px;
+
+        @include vp-desktop-wide {
+            font-size: 18px;
+            line-height: 130%;
+            margin-bottom: 58px;
+        }
     }
 
     &__form {
         display: flex;
         flex-direction: column;
         gap: 18px;
+
+        @include vp-desktop-wide {
+            gap: 40px;
+        }
     }
 
     &__btn {
         flex-shrink: 0;
         align-self: center;
+
+        @include vp-desktop-wide {
+            max-width: 440px;
+            font-family: Montserrat;
+            font-size: 20px;
+            line-height: 120%;
+            padding: 12px 100px;
+            margin-bottom: 12px;
+        }
     }
 
     &::before {
@@ -70,6 +101,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -79,6 +111,7 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }

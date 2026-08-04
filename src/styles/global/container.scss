@@ -1,4 +1,8 @@
 .container {
   @apply w-full max-w-none;
   padding: 0 16px;
+
+  @include vp-desktop-wide {
+    padding: 0 130px;
+  }
 }

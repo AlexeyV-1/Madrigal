@@ -174,7 +174,11 @@
         @apply mb-[18px];
 
         .custom-input__wrapper {
-            @apply flex gap-[10px] justify-start relative
+            @apply flex gap-[10px] justify-start relative;
+
+             @include vp-desktop-wide {
+                margin-top: -15px;
+            }
         }
 
         .custom-input__field {
@@ -204,7 +208,8 @@
         }
 
         .custom-input__text, .custom-input__link {
-            @apply text-[12px]/[15px]
+            @apply text-[12px]/[15px];
+
         }
 
         .custom-input__error {
@@ -223,7 +228,7 @@
         .custom-input__field {
             padding: 14px 65px 14px 50px;
         }
-}
+    }
 }
 
 @keyframes appearance {

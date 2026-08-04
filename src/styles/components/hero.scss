@@ -4,20 +4,40 @@
     gap: 15px;
     flex-direction: column;
 
+    @include vp-desktop-wide {
+        margin: 62px 228px 90px 228px;
+        align-items: center;
+    }
+
     &__description {
         color: $color-gray-dark;
         font-size: 16px;
         line-height: 20px;
+
+        @include vp-desktop-wide {
+            font-family: $ff-tektur;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 120%;
+            text-align: center;
+        }
     }
 
     &__title {
         font-weight: 700;
         font-size: 32px;
         line-height: 42px;
-        
         margin: 0;
         color: $color-orange;
         font-family: $ff-tektur;
+
+        @include vp-desktop-wide {
+            font-size: 64px;
+            line-height: 110%;
+            text-align: center;
+            min-width: 710px;
+            margin-bottom: 20px;
+        }
     }
 
     &__text {
@@ -26,6 +46,14 @@
         width: 339px;
         margin: 0 0 35px;
         color: $color-gray-light;
+
+        @include vp-desktop-wide {
+            font-size: 20px;
+            line-height: 130%;
+            text-align: center;
+            min-width: 579px;
+            margin-bottom: 65px;
+        }
     }
 
     &__btn {

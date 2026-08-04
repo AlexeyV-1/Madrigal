@@ -16,7 +16,6 @@
   }
 }
 
-// viewport > 1440px
 @mixin vp-desktop-wide {
   @media (min-width: $vp-desktop) {
     @content;

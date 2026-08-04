@@ -1,6 +1,10 @@
 .header {
     height: 70px;
 
+    &__logo {
+        cursor: pointer;
+    }
+
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -23,7 +27,7 @@
 
     &--query {
         margin-bottom: 20px;
-        
+
         .header__btn {
             display: block;
         }

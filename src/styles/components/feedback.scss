@@ -1,6 +1,17 @@
 .feedback {
     margin-bottom: 54px;
 
+    @include vp-desktop-wide {
+        display: flex;
+        gap: 170px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
     &__title {
         font-weight: 500;
         font-size: 24px;
@@ -8,6 +19,13 @@
         margin-bottom: 20px;
         color: $color-orange;
         font-family: $ff-tektur;
+
+        @include vp-desktop-wide {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 120%;
+            margin: 0;
+        }
     }
 
     &__text {
@@ -16,6 +34,12 @@
         margin-bottom: 20px;
         min-width: 330px;
         color: $color-gray-light;
+
+        @include vp-desktop-wide {
+            font-size: 18px;
+            line-height: 130%;
+            margin: 0;
+        }
     }
 
     &__btn {
@@ -34,4 +58,3 @@
         }
     }
 }
-
