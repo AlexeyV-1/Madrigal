@@ -176,7 +176,7 @@
         .custom-input__wrapper {
             @apply flex gap-[10px] justify-start relative;
 
-             @include vp-desktop-wide {
+            @include vp-desktop-wide {
                 margin-top: -15px;
             }
         }
