@@ -1,3 +1,5 @@
+'use client'
+
 import { Icon } from "./Icon";
 
 interface HeaderProps {
@@ -10,7 +12,10 @@ export function Header({ page }: HeaderProps) {
             <div className="container">
                 <div className='header__wrapper'>
                     <Icon className="header__logo" role="logo" />
-                    <button className="header__btn">
+                    <button 
+                        className="header__btn"
+                        onClick={() => alert("Данная функция будет реализована позже!")}
+                    >
                         <Icon className="header__info" role="faq" />
                     </button>
                 </div>
