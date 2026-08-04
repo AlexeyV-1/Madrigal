@@ -13,29 +13,32 @@ export default function DashboardChart({ isVisible, deleteFileFn }: DashboardCha
     return (
         <div className={containerClass}>
             <section className="chart">
-                <Icon
-                    className="chart__complete-icon"
-                    role="checked"
-                    aria-label="Загрузка завершена"
-                />
-                <div className="chart__group">
-                    <ImageAsset
-                        src="/IMG/Chart.png"
-                        alt="График стоимости проекта"
-                        width={358}
-                        height={193}
-                        className="chart__group-img"
+                <div className="chart__wrapper">
+                    <Icon
+                        className="chart__complete-icon"
+                        role="checked"
+                        aria-label="Загрузка завершена"
                     />
-                    <button 
-                        className="chart__group-wrapper"
-                        onClick={deleteFileFn}
-                    >
-                        <Icon
-                            className="chart__group-icon"
-                            role="delete"
-                            aria-label="Удалить изображение"
+                    <p className="chart__text">Файл «Реестр_2026.xlsx» успешно обработан (найдено 12 400 строк)</p>
+                    <div className="chart__group">
+                        <ImageAsset
+                            src="/IMG/Chart.png"
+                            alt="График стоимости проекта"
+                            width={358}
+                            height={193}
+                            className="chart__group-img"
                         />
-                    </button>
+                        <button
+                            className="chart__group-wrapper"
+                            onClick={deleteFileFn}
+                        >
+                            <Icon
+                                className="chart__group-icon"
+                                role="delete"
+                                aria-label="Удалить изображение"
+                            />
+                        </button>
+                    </div>
                 </div>
                 <div className="welcome__quick-list">
                     <WelcomeBtn text="Построить динамику сумм по месяцам" />

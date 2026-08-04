@@ -61,5 +61,9 @@
                 transform: translate(0, 0);
             }
         }
+
+        @include vp-desktop-wide {
+            font-size: 22px;
+        }
     }
 }

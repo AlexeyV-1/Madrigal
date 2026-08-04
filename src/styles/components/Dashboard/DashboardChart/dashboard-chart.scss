@@ -2,6 +2,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+
+    @include vp-desktop-wide {
+        flex-direction: row;
+        margin: 0 auto;
+        max-width: 998px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 28px;
+
+        @include vp-desktop-wide {
+            font-size: 18px;
+            line-height: 130%;
+            margin-bottom: 37px;
+            max-width: 484px;
+            text-align: left;
+        }
+    }
 
     &__complete-icon {
         margin-bottom: 20px;
@@ -10,6 +39,11 @@
     &__group {
         position: relative;
         margin-bottom: 35px;
+
+        &-img {
+            width: 484px;
+            height: 261px;
+        }
 
         &-wrapper {
             position: absolute;
@@ -74,6 +108,7 @@
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }

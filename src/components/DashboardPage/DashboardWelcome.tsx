@@ -25,24 +25,25 @@ export default function DashboardWelcome({
                     />
                 </button>
 
-                <h1 className="welcome__title">Добро пожаловать!</h1>
+                <div className="welcome__wrapper">
+                    <h1 className="welcome__title">Добро пожаловать!</h1>
+                    <div className="welcome__container">
+                        <div className="welcome__inner">
+                            <button
+                                className="welcome__action-btn btn"
+                                type="button"
+                                onClick={() => alert("Данная функция будет реализована позже!")}
+                            >
+                                Загрузить данные
+                            </button>
 
-                <div className="welcome__container">
-                    <div className="welcome__inner">
-                        <button
-                            className="welcome__action-btn btn"
-                            type="button"
-                            onClick={() => alert("Данная функция будет реализована позже!")}
-                        >
-                            Загрузить данные
-                        </button>
+                            <p className="welcome__question">или задать вопрос</p>
 
-                        <p className="welcome__question">или задать вопрос</p>
-
-                        <div className="welcome__quick-list">
-                            <WelcomeBtn text="Как структурировать Excel для загрузки?" />
-                            <WelcomeBtn text="Покажи пример отчета на демо-данных" />
-                            <WelcomeBtn text="Где хранятся мои файлы и защищены ли они?" />
+                            <div className="welcome__quick-list">
+                                <WelcomeBtn text="Как структурировать Excel для загрузки?" />
+                                <WelcomeBtn text="Покажи пример отчета на демо-данных" />
+                                <WelcomeBtn text="Где хранятся мои файлы и защищены ли они?" />
+                            </div>
                         </div>
                     </div>
                 </div>
