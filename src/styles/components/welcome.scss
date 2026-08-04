@@ -15,12 +15,33 @@ textarea {
 }
 
 .welcome {
+
+    @include vp-desktop-wide {
+        max-width: 998px;
+    }
+
+    &__wrapper {
+        @include vp-desktop-wide {
+            max-width: 484px;
+            margin: 0 auto;
+        }
+    }
+
     &__faq {
+        &-icon {
+            width: 40px;
+            height: 40px;
+        }
+
         &-btn {
             display: flex;
             margin-left: auto;
             cursor: pointer;
             margin-bottom: 80px;
+
+            @include vp-desktop-wide {
+                margin-bottom: 28px;
+            }
         }
     }
 
@@ -33,10 +54,25 @@ textarea {
         margin: 0 0 107px;
         text-align: center;
         pointer-events: none;
+
+        @include vp-desktop-wide {
+            font-size: 52px;
+            line-height: 110%;
+            margin-bottom: 90px;
+        }
+
     }
 
     &__action-btn {
         margin-bottom: 17px;
+
+
+        @include vp-desktop-wide {
+            font-size: 20px;
+            line-height: 120%;
+            padding: 21px 121px;
+            margin-bottom: 50px;
+        }
     }
 
     &__question {
@@ -46,6 +82,11 @@ textarea {
         color: $color-white;
         line-height: 130%;
         pointer-events: none;
+
+        @include vp-desktop-wide {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
     }
 
     &__quick-list {
@@ -54,6 +95,11 @@ textarea {
         gap: 11px;
         width: 100%;
         margin-bottom: 60px;
+
+        @include vp-desktop-wide {
+            max-width: 484px;
+            transform: translateY(75px);
+        }
     }
 
     &__item-btn {
@@ -67,6 +113,17 @@ textarea {
         padding-inline: 16px;
         white-space: nowrap;
         min-width: 0;
+        transition: background-color ease-in 0.3s;
+
+        &:hover {
+            background-color: $color-gray-light-2;
+        }
+
+        @include vp-desktop-wide {
+            font-size: 16px;
+            line-height: 22px;
+            max-width: 484px;
+        }
     }
 
     &__actions {
@@ -74,12 +131,25 @@ textarea {
         bottom: 20px;
         width: 100%;
 
+        @include vp-desktop-wide {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 30px;
+            justify-content: center;
+        }
+
         &-group {
             display: flex;
             flex-direction: column;
             gap: 13px;
             align-items: flex-end;
             margin-bottom: 13px;
+
+            @include vp-desktop-wide {
+                flex-direction: row-reverse;
+                margin: 0;
+            }
         }
     }
 
@@ -99,6 +169,10 @@ textarea {
         &-btn {
             position: relative;
             width: 100%;
+
+            @include vp-desktop-wide {
+                max-width: 800px;
+            }
         }
 
         &--send,

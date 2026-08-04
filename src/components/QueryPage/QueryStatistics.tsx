@@ -56,36 +56,36 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
 
     return (
         <section className="statistics">
-            <DelayedBlock delayMs={0} className="statistics__filter-block">
+            <div className="statistics__wrapper">
                 <p className="statistics__text">
                     Сделай мне график по самым крупным поставщикам и распиши, что там происходит
                 </p>
-                <Selector onParamsChange={handleSelectorChange} />
-            </DelayedBlock>
+                <DelayedBlock delayMs={0} className="statistics__filter-block">
+                    <Selector onParamsChange={handleSelectorChange} />
+                </DelayedBlock>
 
-            <DelayedBlock delayMs={333}>
-                {monthlyChart ?
-                    <RevenueChart
-                        data={[
-                            { month: '01', value: 70 },
-                            { month: '02', value: 92 },
-                            { month: '03', value: 130 },
-                            { month: '04', value: 80 },
-                            { month: '05', value: 92 },
-                            { month: '06', value: 160 },
-                            { month: '07', value: 192 },
-                            { month: '08', value: 211 },
-                            { month: '09', value: 320 },
-                            { month: '10', value: 288 },
-                            { month: '11', value: 313 },
-                            { month: '12', value: 360 },
-                        ]}
-                    /> : <YearsRanges year={year} yearFn={handleYear} />
-                }
-            </DelayedBlock>
+                <DelayedBlock delayMs={333}>
+                    {monthlyChart ?
+                        <RevenueChart
+                            data={[
+                                { month: '01', value: 70 },
+                                { month: '02', value: 92 },
+                                { month: '03', value: 130 },
+                                { month: '04', value: 80 },
+                                { month: '05', value: 92 },
+                                { month: '06', value: 160 },
+                                { month: '07', value: 192 },
+                                { month: '08', value: 211 },
+                                { month: '09', value: 320 },
+                                { month: '10', value: 288 },
+                                { month: '11', value: 313 },
+                                { month: '12', value: 360 },
+                            ]}
+                        /> : <YearsRanges year={year} yearFn={handleYear} />
+                    }
+                </DelayedBlock>
 
-            <DelayedBlock delayMs={666}>
-                <div className="statistics__btn-wrapper">
+                <DelayedBlock delayMs={666}>
                     {!monthlyChart &&
                         <button
                             className={year !== '' ? "statistics__stat-btn statistics__stat-btn--active" : "statistics__stat-btn"}
@@ -94,7 +94,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                             Получить статистику
                         </button>
                     }
-                    <a 
+                    <a
                         className="statistics__download-btn"
                         href="/IMG/Chart.png"
                         download
@@ -102,22 +102,26 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                         <Icon className="download-icon" role="download" />
                         Скачать
                     </a>
-                </div>
-            </DelayedBlock>
 
-            <DelayedBlock delayMs={999}>
-                <StatisticsNotes page={monthlyChart ? 'second' : 'first'} />
-            </DelayedBlock>
+                </DelayedBlock>
+            </div>
+            <div className="statistics__wrapper-down">
+                <p className="statistics__text-adaptive">
+                    Сделай мне график по самым крупным поставщикам и распиши, что там происходит
+                </p>
+                <DelayedBlock delayMs={999}>
+                    <StatisticsNotes page={monthlyChart ? 'second' : 'first'} />
+                </DelayedBlock>
 
-            <DelayedBlock delayMs={1332}>
-                <div className="statistics__recommendation">
-                    <h3 className="statistics__recommendation-title">Рекомендации</h3>
-                    <p className="statistics__recommendation-text">
-                        Рекомендуется провести дополнительный аудит договоров с ООО «Альфа» на предмет завышения рыночной стоимости.
-                    </p>
-                </div>
-            </DelayedBlock>
-
+                <DelayedBlock delayMs={1332}>
+                    <div className="statistics__recommendation">
+                        <h3 className="statistics__recommendation-title">Рекомендации</h3>
+                        <p className="statistics__recommendation-text">
+                            Рекомендуется провести дополнительный аудит договоров с ООО «Альфа» на предмет завышения рыночной стоимости.
+                        </p>
+                    </div>
+                </DelayedBlock>
+            </div>
             <DelayedBlock delayMs={1665}>
                 <CopyBtn handleFileChange={(e) => handleFileChange(e)} />
                 <SearchBar

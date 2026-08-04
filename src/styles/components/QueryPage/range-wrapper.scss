@@ -5,6 +5,11 @@
     overflow: hidden;
     border-radius: 0;
     transform: rotate(270deg);
+
+    @include vp-desktop-wide {
+            width: 150px;
+            height: 24px;
+    }
 }
 
 .range-track-empty {
