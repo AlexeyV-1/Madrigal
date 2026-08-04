@@ -30,7 +30,7 @@ export default function FormLoginComponent() {
 
     /**
      * TODO: заменить на реальный запрос к API
-     */ 
+     */
     const handleClick = (data: Login) => {
         if (
             data.email === 'madrigal@mail.ru' &&
@@ -39,10 +39,9 @@ export default function FormLoginComponent() {
             setError(null)
             setAnimationPage(true)
 
-        setTimeout(() => {
-            router.push('/landingpage')
-            // setAnimationPage(false)
-        }, 500)
+            setTimeout(() => {
+                router.push('/landingpage')
+            }, 500)
         } else {
             setError({
                 email: 'Неверный email',

@@ -15,7 +15,13 @@
             border-right-color: transparent;
             border-radius: 5px 0 0 5px;
             transition: border-color $transition;
-            @apply content-[''] absolute h-[58px] w-[80%] left-[4px]
+            @apply content-[''] absolute h-[58px] w-[80%] left-[4px];
+
+            @include vp-desktop-wide {
+                border-right-color: $color-red;
+                border-radius: 5px;
+                width: 98%;
+            }
         }
     }
 
@@ -28,19 +34,27 @@
 
     &__decorative-btn {
         background-color: $color-black;
-        @apply w-[78px] h-[78px] rounded-[50%] shrink-0 relative left-[15px]
+        @apply w-[78px] h-[78px] rounded-[50%] shrink-0 relative left-[15px];
+
+        @include vp-desktop-wide {
+            display: none;
+        }
     }
 
     &__btn {
         background-color: $color-red;
         transform: translate(-50%, -50%);
         transition: background-color $transition;
-        @apply absolute w-[48px] h-[48px] top-[50%] left-[50%] rounded-[50%]
+        @apply absolute w-[48px] h-[48px] top-[50%] left-[50%] rounded-[50%];
     }
 
     &__icon {
         @apply text-white;
         transition: color $transition, transform $transition;
+
+        @include vp-desktop-wide {
+            color: $color-black;
+        }
 
         &--active {
             color: $color-red;
@@ -64,15 +78,28 @@
     &__inner {
         padding: 10px 12px 20px;
         @apply flex flex-col items-center;
+
+        @include vp-desktop-wide {
+            background-color: $color-white;
+            border-radius: 0 0 10px 10px
+        }
     }
 
     &__title {
-        @apply text-white mb-[9px] text-[16px]/[20px] font-semibold
+        @apply text-white mb-[9px] text-[16px]/[20px] font-semibold;
+
+        @include vp-desktop-wide {
+            color: $color-black;
+        }
     }
 
     &__text-details {
         color: white;
-        @apply text-[16px]/[20px] font-normal
+        @apply text-[16px]/[20px] font-normal;
+
+        @include vp-desktop-wide {
+            color: $color-black;
+        }
     }
 
     &--active {
@@ -85,6 +112,10 @@
                 &::before {
                     border-color: white;
                     border-right-color: transparent;
+
+                    @include vp-desktop-wide {
+                        border-right-color: $color-white;
+                    }
                 }
             }
 

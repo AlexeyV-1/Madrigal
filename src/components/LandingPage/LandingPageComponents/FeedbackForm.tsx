@@ -92,8 +92,4 @@ export function FeedbackForm() {
             <SuccessFeedback state={success}/>
         </form>
     )
-
-    // <ExitButton href="/welcomepage" className="feedback__card-btn btn" noBaseStyle={true}>
-    //   Отправить заявку
-    //   </ExitButton>
 }

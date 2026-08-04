@@ -22,7 +22,7 @@ export default function AdvantagesCard({
             <div className="advantages-card__wrapper">
                 <div className="advantages-card__head">
                     <div className="advantages-card__icon-wrapper">
-                        <Icon role={iconRole} aria-label="Тематическое изображение" className="advantages__card__icon" />
+                        <Icon role={iconRole} aria-label="Тематическое изображение" className="advantages-card__icon" />
                     </div>
                     <div className="advantages-card__title">{title}</div>
                 </div>

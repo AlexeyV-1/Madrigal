@@ -6,10 +6,19 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
     gap: 16px;
     margin-bottom: 40px;
 
+    @include vp-desktop-wide {
+        margin-bottom: 90px;
+    }
+
     &__list {
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        @include vp-desktop-wide {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 
     &__title {
@@ -18,6 +27,13 @@ $transition: cubic-bezier(0.4, 0, 0.2, 1);
         line-height: 40px;
         color: $color-white;
         font-family: $ff-tektur;
+
+        @include vp-desktop-wide {
+            font-size: 52px;
+            line-height: 110%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
     }
 
     &__item {
