@@ -4,7 +4,7 @@ import { useState } from 'react';
 import DashboardWelcome from './DashboardWelcome';
 import DashboardActions from './DashboardActions';
 // import DashboardTable from "./DashboardTable";
-import DashboardChart from '../Common/DashboardPage/DashboardChart/DashboardChart';
+import DashboardChart from '../Common/DashboardChart';
 
 export function DashboardMain() {
     const [isChartVisible, setIsChartVisible] = useState(false);

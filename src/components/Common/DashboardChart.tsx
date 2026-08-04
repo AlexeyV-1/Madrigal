@@ -1,6 +1,6 @@
-import { Icon } from "../../Icon";
-import WelcomeBtn from "../../../DashboardPage/WelcomeBtn";
-import { ImageAsset } from "../../Image";
+import { Icon } from "./Icon";
+import WelcomeBtn from "../DashboardPage/WelcomeBtn";
+import { ImageAsset } from "./Image";
 
 interface DashboardChartProps {
     isVisible: boolean;

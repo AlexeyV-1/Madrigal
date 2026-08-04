@@ -39,16 +39,11 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     return (
         <section className="statistics">
-            <DelayedBlock delayMs={0}>
+            <DelayedBlock delayMs={0} className="statistics__filter-block">
                 <p className="statistics__text">
                     Сделай мне график по самым крупным поставщикам и распиши, что там происходит
                 </p>
-                <div className="statistics__filter">
-                    <form>
-                        <Selector />
-                        <div className="statistics__analytics"></div>
-                    </form>
-                </div>
+                <Selector />
             </DelayedBlock>
 
             <DelayedBlock delayMs={333}>
