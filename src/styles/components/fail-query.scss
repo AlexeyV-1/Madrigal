@@ -14,6 +14,11 @@
 
     &__icon {
         color: $color-red;
+
+        @include responsive($vp-lg, 2000px) {
+            width: 146px;
+            height: 146px;
+        }
     }
 
     &__title {
@@ -23,7 +28,13 @@
         line-height: 130%;
         letter-spacing: 0%;
         text-align: center;
-        color: $color-orange
+        color: $color-orange;
+
+        @include responsive($vp-lg, 2000px) {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 120%;
+        }
     }
 
     &__text {
@@ -34,5 +45,10 @@
         letter-spacing: 0%;
         text-align: center;
         color: $color-white;
+
+        @include responsive($vp-lg, 2000px) {
+            font-size: 18px;
+            line-height: 130%;
+        }
     }
 }

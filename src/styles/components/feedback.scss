@@ -46,24 +46,47 @@
         margin-bottom: 40px;
 
         &::before {
-            transform: translate(100vw, 0);
-            transition: transform $transition-page;
+            display: none;
             @apply w-[100vw] h-[200vh] bg-black-custom rounded-[20px] content-[''] absolute z-40 opacity-100;
 
             @include vp-desktop-wide {
-                transform: translate(150vw, 0);
                 width: 150vw;
             }
         }
 
         &--active {
             &::before {
-                transform: translate(0, 0);
+                display: block;
+                transform: translate(100vw, 0);
+                animation: transform $transition-page forwards;
             }
         }
 
         @include vp-desktop-wide {
             font-size: 22px;
+
+            &::before {
+                transform: translate(150vw, 0);
+                animation: transform-desktop $transition-page forwards;
+            }
         }
+    }
+}
+
+@keyframes transform {
+    from {
+        transform: translate(100vw, 0);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes transform-desktop {
+    from {
+        transform: translate(150vw, 0);
+    }
+    to {
+        transform: translate(0, 0);
     }
 }

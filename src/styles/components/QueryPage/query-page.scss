@@ -6,13 +6,18 @@
         margin: 0 auto;
         grid-template-columns: 1fr 1fr;
         display: grid;
-        gap: 98px;
-        align-items: center;
+        gap: 20px 98px;
+        align-items: start;
     }
 
     &__wrapper {
         display: flex;
         flex-direction: column;
+
+        @include vp-desktop-wide {
+            position: sticky;
+            top: 90px;
+        }
     }
 
     &__wrapper-down {
@@ -94,6 +99,14 @@
         animation-name: fadeInUpStep;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
+
+        &--third {
+            display: flex;
+        }
+
+        &--sixth {
+            margin: 0 0 20px;
+        }
     }
 
     &__filter-block {

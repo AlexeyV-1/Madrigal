@@ -85,7 +85,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                     }
                 </DelayedBlock>
 
-                <DelayedBlock delayMs={666}>
+                <DelayedBlock delayMs={666} className='statistics__block--third'>
                     {!monthlyChart &&
                         <button
                             className={year !== '' ? "statistics__stat-btn statistics__stat-btn--active" : "statistics__stat-btn"}
@@ -122,7 +122,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                     </div>
                 </DelayedBlock>
             </div>
-            <DelayedBlock delayMs={1665}>
+            <DelayedBlock delayMs={1665} className='statistics__block--sixth'>
                 <CopyBtn handleFileChange={(e) => handleFileChange(e)} />
                 <SearchBar
                     onTogglePageAnimation={animationPage}
