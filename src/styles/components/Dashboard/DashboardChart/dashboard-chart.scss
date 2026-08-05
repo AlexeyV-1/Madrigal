@@ -79,10 +79,12 @@
         left: -16px;
         top: -85px;
         z-index: 10;
-        transform: translateX(100%);
+        display: none;
     }
 
     &--animated::before {
+        display: block;
+        transform: translateX(100%);
         animation: page-switch $transition-page forwards;
     }
 }

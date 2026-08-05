@@ -36,14 +36,15 @@
         @apply flex flex-col gap-[34px];
 
         &::before {
-            transform: translate(100vw, -50vh);
-            transition: transform $transition-page;
+            display: none;
             @apply w-[100vw] h-[100vh] bg-black-custom rounded-[20px] content-[''] absolute z-40 opacity-100
         }
 
         &--active {
             &::before {
-                transform: translate(-50px, -50vh);
+                display: block;
+                transform: translate(30vw, -50vh);
+                animation: transform $transition-page forwards;
             }
         }
     }
@@ -54,5 +55,14 @@
 
     &__error {
         @apply text-error
+    }
+}
+
+@keyframes transform {
+    from {
+        transform: translate(30vw, -50vh);
+    }
+    to {
+        transform: translate(-50px, -50vh);
     }
 }

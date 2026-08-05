@@ -15,11 +15,6 @@ textarea {
 }
 
 .welcome {
-
-    @include vp-desktop-wide {
-        max-width: 998px;
-    }
-
     &__wrapper {
         @include vp-desktop-wide {
             max-width: 484px;
@@ -58,7 +53,7 @@ textarea {
         @include vp-desktop-wide {
             font-size: 52px;
             line-height: 110%;
-            margin-bottom: 90px;
+            margin-bottom: 50px;
         }
 
     }
@@ -71,7 +66,7 @@ textarea {
             font-size: 20px;
             line-height: 120%;
             padding: 21px 121px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
     }
 
@@ -165,14 +160,14 @@ textarea {
         height: 32px;
     }
 
+    &__add-btn {
+        display: none;
+    }
+
     &__search {
         &-btn {
             position: relative;
-                min-width: 358px;
-
-            @include vp-desktop-wide {
-                min-width: 800px;
-            }
+            width: 100%;
         }
 
         &--send,

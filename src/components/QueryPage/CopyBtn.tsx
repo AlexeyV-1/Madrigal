@@ -29,6 +29,14 @@ export default function CopyBtn({ handleFileChange }: CopyBtnProps) {
                     hidden
                     onChange={handleFileChange}
                 />
+                <label htmlFor="attachment-files" className="welcome__attachment-btn">
+                    <Icon className="welcome__attachment-icon welcome__icon" role="attachment" />
+                </label>
+                { /*
+                <label htmlFor="attachment-files" className="welcome__attachment-btn">
+                    <Icon className="welcome__attachment-icon welcome__icon" role="add" />
+                </label> 
+                */ }
             </>
             { /*
             <div className="statistics__copy-background">

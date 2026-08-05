@@ -12,7 +12,12 @@
         }
 
         &:has(~ .custom-input__btn:hover) {
-            border-color: $color-gray-light
+            border-color: $color-gray-light;
+        }
+
+        &:has(~ .custom-input__btn:hover),
+        &:has(~ .custom-input__error) {
+            border-color: $color-error;
         }
 
         &:has(~ .custom-input__error) {
