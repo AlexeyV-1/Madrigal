@@ -121,6 +121,8 @@
 
         &--sixth {
             margin: 0 0 20px;
+            width: 100%;
+            grid-column: span 2
         }
     }
 
