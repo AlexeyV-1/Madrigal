@@ -24,20 +24,20 @@ export function SearchBar({ onTogglePageAnimation, isChart }: SearchBarProps) {
 
   const hasText = query.trim().length > 0
 
-const handleSubmit = (query: string) => {
-  if (query === 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит' && isChart) {
-    if (pathname === '/querypage') return
-    onTogglePageAnimation?.()
-    setTimeout(() => {
-      router.push('/querypage')
-    }, 1000)
-  } else {
-    onTogglePageAnimation?.()
-    setTimeout(() => {
-      router.push('/failquerypage')
-    }, 1000)
+  const handleSubmit = (query: string) => {
+    if (query === 'Сделай мне график по самым крупным поставщикам и распиши, что там происходит' && isChart) {
+      if (pathname === '/querypage') return
+      onTogglePageAnimation?.()
+      setTimeout(() => {
+        router.push('/querypage')
+      }, 1000)
+    } else {
+      onTogglePageAnimation?.()
+      setTimeout(() => {
+        router.push('/failquerypage')
+      }, 1000)
+    }
   }
-}
 
   return (
     <form className="welcome__search-btn" onSubmit={(e) => {
@@ -57,12 +57,12 @@ const handleSubmit = (query: string) => {
       />
       {isVoiceActive && (
         <>
-          <div 
+          <div
             className="welcome__search-voice"
           >
             <Icon role='volume' className='welcome__search-voice-icon' />
           </div>
-          <button   
+          <button
             className="welcome__search-stop"
             onClick={handleVoice}
           >
@@ -71,10 +71,10 @@ const handleSubmit = (query: string) => {
         </>
       )}
       {hasText ? (
-        <button 
-          className="welcome__search--send" 
+        <button
+          className="welcome__search--send"
           type="submit"
-          
+
         >
           <Icon
             className="welcome__search-icon--send"
@@ -83,7 +83,7 @@ const handleSubmit = (query: string) => {
           />
         </button>
       ) : isVoiceActive ? (
-        <button 
+        <button
           className="welcome__search--send"
           type="submit"
         >

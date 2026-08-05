@@ -56,8 +56,8 @@ export default function QueryPage() {
                 duration={2600}
                 className={
                     clsx('animation-wrapper', {
-                        'progress-loader--process' : loading,
-                        'progress-loader--finished' : loadingFinish
+                        'progress-loader--process': loading,
+                        'progress-loader--finished': loadingFinish
                     })}
             />
             <main>

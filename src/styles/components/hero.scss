@@ -35,7 +35,7 @@
             font-size: 64px;
             line-height: 110%;
             text-align: center;
-            min-width: 710px;
+            max-width: 710px;
             margin-bottom: 20px;
         }
     }
@@ -57,6 +57,10 @@
     }
 
     &__btn {
+
+        @include vp-desktop-wide {
+                max-width: 579px;
+            }
         &::before {
             display: none;
             @apply w-[100vw] h-[200vh] bg-black-custom rounded-[20px] content-[''] absolute z-40 opacity-100
