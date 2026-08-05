@@ -10,6 +10,11 @@
         transition: background-color $transition;
         @apply flex w-[100%] justify-between items-center rounded-[5px] h-[66px];
 
+        &:hover {
+            background-color: $color-red;
+            color: $color-white;
+        }
+
         &::before {
             border: 2px solid $color-red;
             border-right-color: transparent;
@@ -20,6 +25,7 @@
 
         @include vp-desktop-wide {
             border-radius: 5px 5px 0 0;
+
             &::before {
                 border-right-color: $color-red;
                 border-radius: 5px;

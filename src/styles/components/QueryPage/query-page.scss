@@ -1,11 +1,13 @@
 .statistics {
     margin: 20px 0;
 
+
     @include vp-desktop-wide {
         max-width: 957px;
         margin: 0 auto;
         grid-template-columns: 1fr 1fr;
         display: grid;
+        grid-template-rows: auto auto;
         gap: 98px;
         align-items: center;
     }
@@ -13,11 +15,30 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
+
+        @include vp-desktop-wide {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
     }
 
     &__wrapper-down {
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
+
+        @include vp-desktop-wide {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+    }
+
+    .wrapper {
+        gap: 13px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 20px;
     }
 
     &__text {
@@ -98,7 +119,7 @@
 
     &__filter-block {
         position: relative;
-        z-index: 20; // выше соседнего .statistics__block с графиком
+        z-index: 20;
     }
 
     &__download-btn {
@@ -301,10 +322,32 @@
         animation-name: fadeInUpStep;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
+    }
+}
 
-        @include vp-desktop-wide {
-            grid-column: 1 / -1;
-        }
+.attachment__wrapper {
+    @include vp-desktop-wide {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
+
+.welcome__attachment-btn {
+    @include vp-desktop-wide {
+        margin: 0 10px;
+    }
+}
+
+.attachment__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 10px;
+
+    @include vp-desktop-wide {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
 }
 

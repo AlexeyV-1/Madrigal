@@ -168,10 +168,10 @@ textarea {
     &__search {
         &-btn {
             position: relative;
-            width: 100%;
+                min-width: 358px;
 
             @include vp-desktop-wide {
-                max-width: 800px;
+                min-width: 800px;
             }
         }
 
