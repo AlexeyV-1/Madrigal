@@ -120,15 +120,18 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                             Рекомендуется провести дополнительный аудит договоров с ООО «Альфа» на предмет завышения рыночной стоимости.
                         </p>
                     </div>
-                    <CopyBtn handleFileChange={(e) => handleFileChange(e)} />
+                   {// <CopyBtn handleFileChange={(e) => handleFileChange(e)} /> 
+                   }
                 </DelayedBlock>
             </div>
+            { /*
             <div className="attachment__wrapper">
-                <DelayedBlock delayMs={1665}>
+                <DelayedBlock delayMs={1665} className='statistics__block--sixth'>
                     <div className="wrapper">
+                        { /*
                         <label htmlFor="attachment-files" className="welcome__attachment-btn">
                             <Icon className="welcome__attachment-icon welcome__icon" role="attachment" />
-                        </label>
+                        </label> }
                         <label htmlFor="attachment-files" className="welcome__attachment-btn">
                             <Icon className="welcome__attachment-icon welcome__icon" role="add" />
                         </label>
@@ -139,6 +142,7 @@ export default function QueryStatistics({ animationFn, monthlyChart, setMonthlyC
                     />
                 </DelayedBlock>
             </div>
+                */ }
             <DelayedBlock delayMs={1665} className='statistics__block--sixth'>
                 <CopyBtn handleFileChange={(e) => handleFileChange(e)} />
                 <SearchBar
