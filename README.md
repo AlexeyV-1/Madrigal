@@ -86,11 +86,11 @@ Frontend‑прототип аналитической платформы для
    cd Madrigal
 
 2. Установи зависимости:
- ```bash
+   ```bash
    npm install
-```
+   ```
 4. Запусти проект:
-```bash
+    ```bash
    npm run dev
-```
+    ```
 5. Открой в браузере: http://localhost:3000
