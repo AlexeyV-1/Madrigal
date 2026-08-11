@@ -90,7 +90,7 @@ Frontend‑прототип аналитической платформы для
    npm install
    ```
 4. Запусти проект:
-    ```bash
+   ```bash
    npm run dev
-    ```
-5. Открой в браузере: http://localhost:3000
+   ```
+6. Открой в браузере: http://localhost:3000
